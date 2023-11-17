@@ -7,7 +7,7 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'kamila-test';
+  title = 'Our app';
 
   products?: any[] = [];
   constructor(private httpClient: HttpClient) {

@@ -1,1 +1,113 @@
 /* You can add global styles to this file, and also import other style files */
+$body-bg: #A6603A;
+$body-color: #EFE3B8;
+
+$base-dark: #A6603A;
+$base-light: #EFE3B8;
+
+$font-color-dark: #A6603A;
+$font-color-light: #EFE3B8;
+
+$fontPathExo2: 'https://fonts.googleapis.com/css2?family=Exo+2&display=swap';
+$fontFamilyExo2: 'Exo 2';
+
+@import url($fontPathExo2);
+
+.font {
+  font-family: $fontFamilyExo2, sans-serif;
+}
+
+
+.light-bg {
+  background-color: $base-light !important;
+  color: $font-color-dark !important;
+}
+
+.about-bg {
+  background-size: cover;
+  padding: 20px;
+}
+
+
+.navbar-bg {
+  background-color: $base-light;
+  color: $font-color-dark !important;
+}
+
+.footer {
+  background-color: $base-dark;
+  color: $font-color-dark;
+}
+
+.btn-shop-now {
+  border: 2px solid $base-light !important;
+  color: $base-light;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: auto;
+
+
+  &:hover {
+    background-color: $base-light !important;
+    color: $base-dark !important;
+  }
+}
+
+.btn-show-more {
+  border: 2px solid $base-dark !important;
+  color: $font-color-dark !important;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: auto;
+
+  &:hover {
+    background-color: $base-dark !important;
+    color: $font-color-light !important;
+  }
+}
+
+.carousel-item {
+  width: 100%;
+}
+
+.image-container {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.main-card-title {
+  margin-bottom: var(--bs-card-title-spacer-y);
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 2% 0;
+  text-align: center;
+}
+
+.svg-button {
+  display: inline-block;
+  padding: 10px;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  text-align: center;
+  border-radius: 2px;
+}
+
+.svg-icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+.svg-button:hover {
+  background-color: $base-dark !important;
+}
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
