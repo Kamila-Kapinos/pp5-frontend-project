@@ -1,1 +1,19 @@
 <p>products works!</p>
+<!--<div *ngIf="products">-->
+<!--  <div *ngFor="let product of products">-->
+<!--    <h2>{{product.name}}</h2>-->
+<!--    <p>price: {{product.price}}</p>-->
+<!--    <img src="{{product.image}}">-->
+<!--  </div>-->
+<!--</div>-->
+
+<div *ngIf="products" class="product-container">
+  <div *ngFor="let product of products" class="product-item">
+    <h2>{{ product.name }}</h2>
+    <p>Price: {{ product.price }}</p>
+    <img src="{{ product.image }}" alt="{{ product.name }}">
+  </div>
+</div>
+
+
+
