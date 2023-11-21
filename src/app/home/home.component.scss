@@ -1,0 +1,45 @@
+$base-dark: #A6603A;
+$base-light: #EFE3B8;
+
+$font-color-dark: #A6603A;
+$font-color-light: #EFE3B8;
+
+
+.about-bg {
+  background-size: cover;
+  padding: 20px;
+}
+
+.btn-shop-now {
+  border: 2px solid $base-light !important;
+  color: $base-light;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: auto;
+
+
+  &:hover {
+    background-color: $base-light !important;
+    color: $base-dark !important;
+  }
+}
+
+.btn-show-more {
+  border: 2px solid $base-dark !important;
+  color: $font-color-dark !important;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: auto;
+
+  &:hover {
+    background-color: $base-dark !important;
+    color: $font-color-light !important;
+  }
+}
+
+.main-card-title {
+  margin-bottom: var(--bs-card-title-spacer-y);
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 2% 0;
+  text-align: center;
+}

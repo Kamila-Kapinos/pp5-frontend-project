@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
-$body-bg: #A6603A;
+
+$body-bg: #D08C6B;
 $body-color: #EFE3B8;
 
 $base-dark: #A6603A;
@@ -23,9 +24,10 @@ $fontFamilyExo2: 'Exo 2';
   color: $font-color-dark !important;
 }
 
-.about-bg {
-  background-size: cover;
-  padding: 20px;
+.dark-bg {
+  background-color: $base-dark !important;
+  color: $font-color-light !important;
+  padding-bottom: 20px;
 }
 
 
@@ -37,33 +39,6 @@ $fontFamilyExo2: 'Exo 2';
 .footer {
   background-color: $base-dark;
   color: $font-color-dark;
-}
-
-.btn-shop-now {
-  border: 2px solid $base-light !important;
-  color: $base-light;
-  background-color: transparent;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-right: auto;
-
-
-  &:hover {
-    background-color: $base-light !important;
-    color: $base-dark !important;
-  }
-}
-
-.btn-show-more {
-  border: 2px solid $base-dark !important;
-  color: $font-color-dark !important;
-  background-color: transparent;
-  transition: background-color 0.3s ease, color 0.3s ease;
-  margin-right: auto;
-
-  &:hover {
-    background-color: $base-dark !important;
-    color: $font-color-light !important;
-  }
 }
 
 .carousel-item {
@@ -83,12 +58,6 @@ $fontFamilyExo2: 'Exo 2';
   border-radius: 5px;
 }
 
-.main-card-title {
-  margin-bottom: var(--bs-card-title-spacer-y);
-  background-color: rgba(0, 0, 0, 0.2);
-  padding: 2% 0;
-  text-align: center;
-}
 
 .svg-button {
   display: inline-block;
@@ -109,5 +78,10 @@ $fontFamilyExo2: 'Exo 2';
   background-color: $base-dark !important;
 }
 
-@import "../node_modules/bootstrap/scss/bootstrap";
 
+/* Importing Datepicker SCSS file. */
+@import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
+
+
+/* Importing Bootstrap SCSS file. */
+@import "../node_modules/bootstrap/scss/bootstrap";

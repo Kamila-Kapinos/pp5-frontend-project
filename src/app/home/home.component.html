@@ -1,103 +1,84 @@
 <div>
-  <div class="row">
-    <div class="col-6 col-sm-6 d-flex flex-column justify-content-center text-center">
-      <h2 class="font-color-light">Organic products made with love. That's what you get from us. At our core, we believe in the power of nature to nurture and rejuvenate.</h2>
-      <button type="button" class="btn btn-shop-now mt-4" [routerLink]="['/products']">Shop now</button>
+  <div class="container">
+    <div class="row">
+      <div class="col d-flex flex-column justify-content-center text-center mt-4">
+        <h2 class="font-color-light">Organic products made with love. That's what you get from us. At our core, we believe in the power of nature to nurture and rejuvenate.</h2>
+        <button type="button" class="btn btn-shop-now mt-4" [routerLink]="['/products']">Shop now</button>
+      </div>
+      <div class="col mt-4">
+        <carousel>
+          <slide>
+            <div class="image-container">
+              <img src="assets/images/serum3.jpg" alt="serum">
+            </div>
+          </slide>
+          <slide>
+            <div class="image-container">
+              <img src="assets/images/krem.jpg" alt="krem">
+            </div>
+          </slide>
+          <slide>
+            <div class="image-container">
+              <img src="assets/images/kosmetyki.jpg" alt="kosmetyki">
+            </div>
+          </slide>
+        </carousel>
+      </div>
     </div>
-    <div class="col-6 col-sm-6 mt-4">
-      <div class="content-container">
-        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="image-container">
-                <img src="assets/images/serum3.jpg" alt="serum">
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="image-container">
-                <img src="assets/images/krem.jpg" alt="krem">
-              </div>
-            </div>
-            <div class="carousel-item">
-              <div class="image-container">
-                <img src="assets/images/kosmetyki.jpg" alt="kosmetyki">
-              </div>
-            </div>
-          </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
-                  data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
-                  data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+  </div>
+  <div class="light-bg about-bg mt-4">
+    <div class="row">
+      <div class="col image-container">
+        <img src="assets/images/cosmetic.jpg" class="img-fluid" alt="serum">
+      </div>
+      <div class="col d-flex flex-column justify-content-center text-center">
+        <h2>Our brand story</h2>
+        <p>Established in 2015 by visionary founder Cleo Smith, Self Care is not just a brand; it's a lifestyle. Committed to enhancing your well-being, we take pride in crafting premium products that seamlessly blend luxury and self-care.</p>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 mb-4">
+    <div class="row">
+      <div class="col d-flex flex-column justify-content-center text-center text-justify">
+        <h2>Our Philosophy</h2>
+        <p>At Self Care, we believe that self-love is the foundation of a fulfilling life. That's why we've dedicated ourselves to curating a range of high-quality products designed to elevate your self-care routine. From indulgent skincare essentials to soothing wellness items, each product is meticulously crafted to inspire moments of tranquility and rejuvenation. At Self Care, we believe that self-love is the foundation of a fulfilling life. That's why we've dedicated ourselves to curating a range of high-quality products designed to elevate your self-care routine. From indulgent skincare essentials to soothing wellness items, each product is meticulously crafted to inspire moments of tranquility and rejuvenation.</p>
+      </div>
+      <div class="col image-container">
+        <img src="assets/images/philosophy.jpg" class="img-fluid" alt="books">
+      </div>
+    </div>
+  </div>
+  <h1 class="main-card-title">Indulge in the essence of Self Care — because you deserve the very best.</h1>
+  <div class="card light-bg m-lg-2 p-lg-3">
+    <div class="row">
+      <div class="card-body col-4">
+        <h5 class="card-title">Essential Oils</h5>
+        <p class="card-text">Relax and unwind with our wide
+          variety of essential oils.</p>
+        <img class="card-img-top card-img-bottom" src="assets/images/oil.jpg"
+             alt="oil">
+        <div class="mt-2">
+          <a href="#" class="btn btn-show-more">Show more</a>
         </div>
       </div>
-    </div>
-  </div>
-</div>
-
-
-<div class="light-bg about-bg mt-4">
-  <div class="row">
-    <div class="col image-container">
-      <img src="assets/images/cosmetic.jpg" class="img-fluid" alt="serum">
-    </div>
-    <div class="col d-flex flex-column justify-content-center text-center">
-      <h2>Our brand story</h2>
-      <p>Established in 2015 by visionary founder Cleo Smith, Self Care is not just a brand; it's a lifestyle. Committed to enhancing your well-being, we take pride in crafting premium products that seamlessly blend luxury and self-care.</p>
-    </div>
-  </div>
-</div>
-
-<div class="mt-4 mb-4">
-  <div class="row">
-    <div class="col d-flex flex-column justify-content-center text-center text-justify">
-      <h2>Our Philosophy</h2>
-      <p>At Self Care, we believe that self-love is the foundation of a fulfilling life. That's why we've dedicated ourselves to curating a range of high-quality products designed to elevate your self-care routine. From indulgent skincare essentials to soothing wellness items, each product is meticulously crafted to inspire moments of tranquility and rejuvenation. At Self Care, we believe that self-love is the foundation of a fulfilling life. That's why we've dedicated ourselves to curating a range of high-quality products designed to elevate your self-care routine. From indulgent skincare essentials to soothing wellness items, each product is meticulously crafted to inspire moments of tranquility and rejuvenation.</p>
-    </div>
-    <div class="col image-container">
-      <img src="assets/images/philosophy.jpg" class="img-fluid" alt="books">
-    </div>
-  </div>
-</div>
-
-<h1 class="main-card-title">Indulge in the essence of Self Care — because you deserve the very best.</h1>
-
-<div class="card light-bg m-lg-2 p-lg-3">
-  <div class="row">
-    <div class="card-body col-4">
-      <h5 class="card-title">Essential Oils</h5>
-      <p class="card-text">Relax and unwind with our wide
-        variety of essential oils.</p>
-      <img class="card-img-top card-img-bottom" src="assets/images/oil.jpg"
-           alt="oil">
-      <div class="mt-2">
-        <a href="#" class="btn btn-show-more">Show more</a>
+      <div class="card-body col-4">
+        <h5 class="card-title">Organic Soaps</h5>
+        <p class="card-text">Keep your skin clean and healthy. Hypoallergenic & vegan.</p>
+        <img class="card-img-top card-img-bottom" src="assets/images/soap.jpg"
+             alt="soap">
+        <div class="mt-2">
+          <a href="#" class="btn btn-show-more">Show more</a>
+        </div>
       </div>
-    </div>
-
-    <div class="card-body col-4">
-      <h5 class="card-title">Organic Soaps</h5>
-      <p class="card-text">Keep your skin clean and healthy. Hypoallergenic & vegan.</p>
-      <img class="card-img-top card-img-bottom" src="assets/images/soap.jpg"
-           alt="soap">
-      <div class="mt-2">
-        <a href="#" class="btn btn-show-more">Show more</a>
-      </div>
-    </div>
-
-    <div class="card-body col-4">
-      <h5 class="card-title">Soy Candles</h5>
-      <p class="card-text">Let our line of scented soy candles
-        improve your mood.</p>
-      <img class="card-img-top card-img-bottom" src="assets/images/soy-candle.jpg"
-           alt="Cosmetics-Makeup-Brushes-and-Powder-Dust-Explosion">
-      <div class="mt-2">
-        <a href="#" class="btn btn-show-more">Show more</a>
+      <div class="card-body col-4">
+        <h5 class="card-title">Soy Candles</h5>
+        <p class="card-text">Let our line of scented soy candles
+          improve your mood.</p>
+        <img class="card-img-top card-img-bottom" src="assets/images/soy-candle.jpg"
+             alt="Cosmetics-Makeup-Brushes-and-Powder-Dust-Explosion">
+        <div class="mt-2">
+          <a href="#" class="btn btn-show-more">Show more</a>
+        </div>
       </div>
     </div>
   </div>
