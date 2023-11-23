@@ -9,9 +9,10 @@ import { ProductsComponent } from './products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { CartComponent } from './cart/cart.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ProductsComponent],
+  declarations: [AppComponent, HomeComponent, ProductsComponent, CartComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
