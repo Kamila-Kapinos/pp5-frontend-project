@@ -1,7 +1,15 @@
-img {
-  width: 320px;
-  height: 213px;
+$base-dark: #A6603A;
+$base-light: #EFE3B8;
+
+$font-color-dark: #A6603A;
+$font-color-light: #EFE3B8;
+
+.product-item img {
+  width: 240px; /* Mniejsza szerokość */
+  height: 160px; /* Mniejsza wysokość, zachowując proporcje 3:2 */
   object-fit: cover;
+  border-radius: 5px;
+  object-position: center center;
 }
 
 .product-container {
@@ -15,6 +23,11 @@ img {
   margin-bottom: 20px;
   box-sizing: border-box;
   text-align: center;
+  color: $font-color-dark !important;
+  background-color: $base-light !important;
+  border-radius: 5px;
+  overflow: hidden;
+  padding: 10px;
 }
 
 @media (max-width: 767px) {
@@ -23,3 +36,29 @@ img {
   }
 }
 
+.btn-product-details {
+  color: $font-color-dark !important;
+  font-size: 16px !important;
+  font-weight: bold;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: auto;
+
+  &:hover {
+    background-color: $base-dark !important;
+    color: $font-color-light !important;
+  }
+}
+
+.btn-add-to-card {
+  border: 2px solid $base-dark !important;
+  color: $font-color-dark !important;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: auto;
+
+  &:hover {
+    background-color: $base-dark !important;
+    color: $font-color-light !important;
+  }
+}
