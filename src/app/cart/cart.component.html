@@ -1,1 +1,20 @@
 <p>cart works!</p>
+<div *ngIf="offer" class="product-container">
+<!--  products, productsCount, total -->
+    <h1>Products in cart:</h1>
+    <div class="row header align-items-start">
+      <div class="col">Product name</div>
+      <div class="col">units</div>
+      <div class="col">unit price</div>
+    </div>
+    <div *ngFor="let item of offer.orderLines" class="offer-item container text-center">
+      <div class="row ">
+        <div class="col">{{ item.name }} </div>
+        <div class="col">{{ item.quantity }} </div>
+        <div class="col">{{ item.unitPrice }} </div>
+      </div>
+    </div>
+
+    <div>ALl product in cart: {{ offer.productsCount }}</div>
+    <div>Cart total: {{offer.total}}</div>
+</div>
