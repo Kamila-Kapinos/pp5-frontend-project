@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CartService } from '../../../sales/services/cart.service';
+import { Product } from '../../models/product';
 
 @Component({
   selector: 'app-products',
@@ -9,7 +10,7 @@ import { CartService } from '../../../sales/services/cart.service';
   styleUrls: ['./products.component.scss'],
 })
 export class ProductsComponent implements OnInit {
-  products?: any[] = [];
+  products: Product[] = new Array<Product>();
   constructor(
     private httpClient: HttpClient,
     private cartService: CartService,
