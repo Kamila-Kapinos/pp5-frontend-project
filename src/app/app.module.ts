@@ -11,9 +11,10 @@ import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CartComponent } from './cart/cart.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { ProductDetailsComponent } from './product-details/product-details.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ProductsComponent, CartComponent, LogInComponent],
+  declarations: [AppComponent, HomeComponent, ProductsComponent, CartComponent, LogInComponent, ProductDetailsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
