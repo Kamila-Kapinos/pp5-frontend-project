@@ -1,20 +1,17 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
-import { ProductsComponent } from './products/products.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { CartComponent } from './cart/cart.component';
-import { LogInComponent } from './log-in/log-in.component';
-import { ProductDetailsComponent } from './product-details/product-details.component';
+import { CartComponent } from './sales/components/cart/cart.component';
+import { LogInComponent } from './customer/components/log-in/log-in.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ProductsComponent, CartComponent, LogInComponent, ProductDetailsComponent],
+  declarations: [AppComponent, HomeComponent, CartComponent, LogInComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,

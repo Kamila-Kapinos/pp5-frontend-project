@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { CartService } from '../services/cart.service';
+import { CartService } from '../../../sales/services/cart.service';
 
 @Component({
   selector: 'app-products',
+  standalone: false,
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.scss'],
 })
