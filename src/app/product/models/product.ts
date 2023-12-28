@@ -1,10 +1,9 @@
-export class Product {
-  constructor() {}
-  id: string = '';
-  uuid: string = '';
-  name: string = '';
-  desc: string = '';
-  price: number = 0;
-  image: string = '';
-  online: boolean = false;
+export interface Product {
+  id: string;
+  uuid: string;
+  name: string;
+  desc: string;
+  price: number;
+  image: string;
+  online: boolean;
 }

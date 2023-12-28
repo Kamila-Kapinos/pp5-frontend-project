@@ -1,28 +1,43 @@
-import { Component, inject } from '@angular/core';
+// product-details.component.ts
+
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-product-details',
   templateUrl: './product-details.component.html',
   styleUrls: ['./product-details.component.scss'],
 })
-export class ProductDetailsComponent {
-  product: Product = new Product();
-  route: ActivatedRoute = inject(ActivatedRoute);
+export class ProductDetailsComponent implements OnInit {
+  product: Product = {
+    id: '',
+    uuid: '',
+    name: '',
+    desc: '',
+    price: 0,
+    image: '',
+    online: false,
+  };
   productId = '';
 
-  constructor(private httpClient: HttpClient) {
+  constructor(
+    private productService: ProductService,
+    private route: ActivatedRoute,
+  ) {
     this.productId = this.route.snapshot.params['id'];
   }
 
   ngOnInit() {
-    this.httpClient
-      .get<Product>(`/api/products/${this.productId}`)
-      .subscribe((product: Product) => {
+    this.productService.getProductById(this.productId).subscribe(
+      (product: Product) => {
         console.log({ product });
         this.product = product;
-      });
+      },
+      (error) => {
+        console.error('Błąd podczas pobierania szczegółów produktu:', error);
+      },
+    );
   }
 }
