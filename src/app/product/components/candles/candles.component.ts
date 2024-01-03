@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {Product} from "../../models/product";
+import {ProductService} from "../../services/product.service";
 
 @Component({
   selector: 'app-candles',
@@ -7,4 +9,16 @@ import { Component } from '@angular/core';
 })
 export class CandlesComponent {
 
+  products: Product[] = [];
+
+  constructor(
+    private productService: ProductService,
+  ) {}
+
+  ngOnInit() {
+    this.productService.getProducts().subscribe((products: Product[]) => {
+      console.log({ products });
+      this.products = products;
+    });
+  }
 }
