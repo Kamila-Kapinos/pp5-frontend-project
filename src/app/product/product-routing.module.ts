@@ -12,7 +12,6 @@ const routes: Routes = [
   {
     path: 'details/:id',
     component: ProductDetailsComponent,
-    title: 'Product details',
   },{
     path: 'soaps',
     component: SoapsComponent
