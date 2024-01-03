@@ -10,6 +10,10 @@ export class CartService {
 
   constructor(private httpClient: HttpClient) {}
 
+  getOffer(){
+    return this.httpClient.get<any[]>('/api/current-offer')
+  }
+
   handleAddToCart(productId: string): Observable<any> {
     const url = `${this.apiUrl}/${productId}`;
 
