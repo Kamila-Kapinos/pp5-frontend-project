@@ -16,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
     uuid: '',
     name: '',
     desc: '',
+    type: '',
     price: 0,
     image: '',
     online: false,

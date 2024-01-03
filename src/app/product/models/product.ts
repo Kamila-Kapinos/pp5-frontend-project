@@ -3,6 +3,7 @@ export interface Product {
   uuid: string;
   name: string;
   desc: string;
+  type: string;
   price: number;
   image: string;
   online: boolean;
