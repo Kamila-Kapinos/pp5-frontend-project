@@ -45,18 +45,6 @@ $font-color-light: #EFE3B8;
   .product-item {
     width: calc(25% - 20px);
   }
-
-  //&:nth-last-child(n + 4):nth-last-child(-n + 1) {
-  //  width: calc(25% - 20px);
-  //}
-  //
-  //&:nth-last-child(n + 3):nth-last-child(-n + 2) {
-  //  width: calc(33.33% - 20px);
-  //}
-  //
-  //&:nth-last-child(n + 2):nth-last-child(-n + 3) {
-  //  width: calc(50% - 20px);
-  //}
 }
 
 .btn-product-details {
