@@ -1,6 +1,5 @@
 $base-dark: #A6603A;
 $base-light: #EFE3B8;
-
 $font-color-dark: #A6603A;
 $font-color-light: #EFE3B8;
 
@@ -13,23 +12,16 @@ $font-color-light: #EFE3B8;
   max-width: 800px; // Wider max-width
   margin: 20px auto;
 
-  p {
-    margin-bottom: 15px;
-    line-height: 1.5;
-  }
-
   h2 {
     font-size: 24px;
     color: $base-dark !important;
     margin-bottom: 15px;
   }
-}
-.product-item img {
-  width: 240px; /* Mniejsza szerokość */
-  height: 160px; /* Mniejsza wysokość, zachowując proporcje 3:2 */
-  object-fit: cover;
-  border-radius: 5px;
-  object-position: center center;
+
+  p {
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
 }
 
 .product-container {
@@ -39,7 +31,7 @@ $font-color-light: #EFE3B8;
 }
 
 .product-item {
-  width: calc(25% - 10px);
+  width: calc(33.33% - 20px); /* Zmiana szerokości na trzy elementy w wierszu z odjęciem większego marginesu */
   margin-bottom: 20px;
   box-sizing: border-box;
   text-align: center;
@@ -49,14 +41,30 @@ $font-color-light: #EFE3B8;
   overflow: hidden;
   padding: 10px;
 
-  *ngIf {
-  display: none; // Dodaj warunek *ngIf, aby ukrywać elementy, które nie spełniają warunku
+  img {
+    width: 240px; /* Mniejsza szerokość */
+    height: 160px; /* Mniejsza wysokość, zachowując proporcje 3:2 */
+    object-fit: cover;
+    border-radius: 5px;
+    object-position: center center;
   }
 }
 
 @media (max-width: 767px) {
   .product-item {
-    width: calc(50% - 10px);
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1199px) {
+  .product-item {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 1200px) {
+  .product-item {
+    width: calc(25% - 20px);
   }
 }
 
@@ -75,11 +83,11 @@ $font-color-light: #EFE3B8;
 }
 
 .btn-add-to-card {
-  border: 2px solid $base-dark !important;
   color: $font-color-dark !important;
   background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-right: auto;
+  border: 2px solid $base-dark !important;
 
   &:hover {
     background-color: $base-dark !important;
