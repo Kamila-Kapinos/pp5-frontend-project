@@ -25,7 +25,7 @@ export class CartService {
   }
 
   private getProductInfo(productId: string): Observable<any> {
-    const productUrl = `/api/product/${productId}`;
+    const productUrl = `/api/products/${productId}`;
 
     console.log(`getProductInfo - Wysyłanie żądania GET do: ${productUrl}`);
 
