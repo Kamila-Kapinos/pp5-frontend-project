@@ -10,6 +10,10 @@ export class CartService {
 
   constructor(private httpClient: HttpClient) {}
 
+  getOffer(){
+    return this.httpClient.get<any[]>('/api/current-offer')
+  }
+
   handleAddToCart(productId: string): Observable<any> {
     const url = `${this.apiUrl}/${productId}`;
 
@@ -21,7 +25,7 @@ export class CartService {
   }
 
   private getProductInfo(productId: string): Observable<any> {
-    const productUrl = `/api/product/${productId}`;
+    const productUrl = `/api/products/${productId}`;
 
     console.log(`getProductInfo - Wysyłanie żądania GET do: ${productUrl}`);
 
