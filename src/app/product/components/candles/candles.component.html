@@ -1,0 +1,15 @@
+<p>candles works!</p>
+<div class="text-container">
+  <h2>Illuminate Your Space with the Tranquil Warmth of Soy Wax Candles</h2>
+  <p>Experience pure serenity with our soy wax candles. Crafted for a clean burn, these candles radiate a tranquil warmth, filling your space with soothing scents and a gentle ambiance. Embrace the essence of relaxation with every flicker.</p>
+</div>
+
+<div *ngIf="products" class="product-container">
+  <ng-container *ngFor="let product of products">
+    <div class="product-item" *ngIf="product?.type === 'candle'">
+      <button class="btn btn-product-details" [routerLink]="['/products/details', product?.id]">{{ product?.name }}</button>
+      <img class="mt-3" src="{{ product?.image }}" alt="{{ product?.name }}">
+      <p>Price: {{ product?.price }}</p>
+    </div>
+  </ng-container>
+</div>

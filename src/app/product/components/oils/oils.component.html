@@ -1,0 +1,19 @@
+<p>oils works!</p>
+<div class="text-container">
+  <h2>Discover the Power of Essential Oils</h2>
+  <p>Dive into the tranquil essence of lavender, celebrated for its calming attributes that foster relaxation and alleviate stress. Allow the gentle fragrance to wrap around your senses, weaving a serene ambiance that beckons restful moments. Unwind effortlessly at the close of a demanding day, embracing the soothing embrace of lavender to transport you to a state of tranquility and peace.</p>
+</div>
+
+<div *ngIf="products" class="product-container">
+  <ng-container *ngFor="let product of products">
+    <div class="product-item" *ngIf="product?.type === 'oil'">
+      <button class="btn btn-product-details" [routerLink]="['/products/details', product?.id]">{{ product?.name }}</button>
+      <img class="mt-3" src="{{ product?.image }}" alt="{{ product?.name }}">
+      <p>Price: {{ product?.price }}</p>
+    </div>
+  </ng-container>
+</div>
+
+
+
+

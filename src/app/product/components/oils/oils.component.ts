@@ -1,13 +1,14 @@
 import { Component } from '@angular/core';
 import {Product} from "../../models/product";
 import {ProductService} from "../../services/product.service";
+import {CartService} from "../../../sales/services/cart.service";
 
 @Component({
-  selector: 'app-soaps',
-  templateUrl: './soaps.component.html',
-  styleUrls: ['./soaps.component.scss']
+  selector: 'app-oils',
+  templateUrl: './oils.component.html',
+  styleUrls: ['./oils.component.scss']
 })
-export class SoapsComponent {
+export class OilsComponent {
 
   products: Product[] = [];
 
@@ -21,4 +22,5 @@ export class SoapsComponent {
       this.products = products;
     });
   }
+
 }

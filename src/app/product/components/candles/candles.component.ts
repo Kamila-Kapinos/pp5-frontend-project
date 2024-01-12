@@ -3,11 +3,11 @@ import {Product} from "../../models/product";
 import {ProductService} from "../../services/product.service";
 
 @Component({
-  selector: 'app-soaps',
-  templateUrl: './soaps.component.html',
-  styleUrls: ['./soaps.component.scss']
+  selector: 'app-candles',
+  templateUrl: './candles.component.html',
+  styleUrls: ['./candles.component.scss']
 })
-export class SoapsComponent {
+export class CandlesComponent {
 
   products: Product[] = [];
 
