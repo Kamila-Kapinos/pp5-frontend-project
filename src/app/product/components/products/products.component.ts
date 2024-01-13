@@ -25,18 +25,13 @@ export class ProductsComponent implements OnInit {
 
   initializeAddToCartHandler(productId: string | null): void {
     if (productId !== null) {
-      this.cartService.handleAddToCart(productId).subscribe(
-        (productInfo) => {
-          console.log(
-            'Informacje o produkcie po dodaniu do koszyka:',
-            productInfo,
-          );
-          // Dodatkowo, możesz zaktualizować widok lub inny stan komponentu
-        },
-        (error) => {
-          console.error('Błąd podczas dodawania do koszyka:', error);
-        },
-      );
+      if (this.cartService.handleAddToCart(productId)) {
+        console.log(
+          'OK'
+        );
+      } else {
+        console.error('Błąd podczas dodawania do koszyka');
+      }
     } else {
       console.error('Błąd: Brak identyfikatora produktu');
     }

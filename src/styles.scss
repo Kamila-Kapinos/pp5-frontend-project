@@ -78,6 +78,10 @@ $fontFamilyExo2: 'Exo 2';
   background-color: $base-dark !important;
 }
 
+input[type=number] {
+  text-align: right;
+}
+
 
 /* Importing Datepicker SCSS file. */
 @import "node_modules/ngx-bootstrap/datepicker/bs-datepicker";
