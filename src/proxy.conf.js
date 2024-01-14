@@ -21,7 +21,7 @@ function logProvider() {
 
 var PROXY_CONF = {
   '/api': {
-    target: 'http://192.168.33.13:9999',
+    target: 'http://127.0.0.1:9999',
     secure: false,
     changeOrigin: true,
     logLevel: 'debug',
