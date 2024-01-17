@@ -11,7 +11,7 @@ $font-color-light: #d9d9d9;
 }
 
 .btn-shop-now {
-  border: 2px solid $base-light !important;
+  border: 1px solid $base-light !important;
   color: $base-light;
   background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -25,7 +25,7 @@ $font-color-light: #d9d9d9;
 }
 
 .btn-show-more {
-  border: 2px solid $base-dark !important;
+  border: 1px solid $base-dark !important;
   color: $font-color-dark !important;
   background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;

@@ -65,6 +65,10 @@ export class CartService {
     }
   }
 
+  applyVoucher(voucherCode: string): Observable<any> {
+    return of({ success: true, message: 'Voucher applied successfully.' });
+  }
+
   private refreshSession() {
     this.saveSession();
     this.refreshProductsQuantity();

@@ -4,6 +4,11 @@ $base-light: #d9d9d9;
 $font-color-dark: #7F8E9A;
 $font-color-light: #d9d9d9;
 
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
 .product-container {
   display: flex;
   flex-wrap: wrap;
@@ -67,7 +72,7 @@ $font-color-light: #d9d9d9;
   background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-right: auto;
-  border: 2px solid $base-dark !important;
+  border: 1px solid $base-dark !important;
 
   &:hover {
     background-color: $base-dark !important;
