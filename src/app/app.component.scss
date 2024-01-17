@@ -1,3 +1,9 @@
+$base-dark: #7F8E9A;
+$base-light: #d9d9d9;
+
+$font-color-dark: #7F8E9A;
+$font-color-light: #d9d9d9;
+
 .cart {
     position: relative;
     padding-right: 22px;
@@ -5,7 +11,7 @@
         position: absolute;
         right: 0;
         top: -10px;
-        background-color: red;
+        background-color: rgba(255, 0, 0, 0.73);
         color: white;
         border-radius: 50%;
         width: 20px;
@@ -13,3 +19,25 @@
         font-size: 12px;
     }
 }
+
+/* Styl przycisku */
+.svg-button {
+  background-color: $base-light !important;
+  font-color: $font-color-dark !important;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+
+.fa-cart-shopping {
+  margin-right: 10px;
+}
+
+.svg-button:hover {
+  background-color: $base-dark !important;
+}
+

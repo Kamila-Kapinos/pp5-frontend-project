@@ -2,7 +2,7 @@
 <div *ngIf="cartProducts" class="product-container">
   <!--  products, productsCount, total -->
   <h1>Products in cart:</h1>
-  <div class="row header align-items-start">
+  <div class="row header">
     <div class="col">Product name</div>
     <div class="col">Units</div>
     <div class="col">Unit price</div>
@@ -13,7 +13,7 @@
   <div *ngFor="let item of cartProducts" class="offer-item container text-center">
     <div class="row">
       <div class="col col-elements">{{ item.product.name }} </div>
-      <div class="col col-elements"><input type="number" [(ngModel)]="item.quantity" (ngModelChange)="onChanged(item)" [min]="1"></div>
+      <div class="col"><input type="number" [(ngModel)]="item.quantity" (ngModelChange)="onChanged(item)" [min]="1"></div>
       <div class="col col-elements">{{ item.product.price }} </div>
       <div class="col col-elements">{{ calcUnitsPrice(item) }}</div>
       <div class="col col-elements">
@@ -24,7 +24,11 @@
           <option value="3">Three</option>
         </select>
       </div>
-      <div class="col col-elements"><button class="btn-delete" (click)="delete(item)">Delete</button></div>
+      <div class="col col-elements">
+        <button class="btn-delete" (click)="delete(item)">
+          <i class="fas fa-trash-alt"></i> <!-- Ikona kosza z FontAwesome -->
+        </button>
+      </div>
     </div>
   </div>
 

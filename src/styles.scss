@@ -1,13 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
 
-$body-bg: #D08C6B;
-$body-color: #EFE3B8;
+$body-bg: #e7e6e6;
+$body-color: #d9d9d9;
 
-$base-dark: #A6603A;
-$base-light: #EFE3B8;
+$base-dark: #7F8E9A;
+$base-light: #d9d9d9;
 
-$font-color-dark: #A6603A;
-$font-color-light: #EFE3B8;
+$font-color-dark: #7F8E9A;
+$font-color-light: #d9d9d9;
 
 $fontPathExo2: 'https://fonts.googleapis.com/css2?family=Exo+2&display=swap';
 $fontFamilyExo2: 'Exo 2';
@@ -58,26 +58,6 @@ $fontFamilyExo2: 'Exo 2';
   border-radius: 5px;
 }
 
-
-.svg-button {
-  display: inline-block;
-  padding: 10px;
-  cursor: pointer;
-  border: none;
-  background-color: transparent;
-  text-align: center;
-  border-radius: 5px;
-}
-
-.svg-icon {
-  vertical-align: middle;
-  margin-right: 5px;
-}
-
-.svg-button:hover {
-  background-color: $base-dark !important;
-}
-
 input[type=number] {
   text-align: right;
 }
@@ -89,3 +69,6 @@ input[type=number] {
 
 /* Importing Bootstrap SCSS file. */
 @import "../node_modules/bootstrap/scss/bootstrap";
+
+/* W pliku .scss lub .css */
+@import '~@fortawesome/fontawesome-free/css/all.min.css';
