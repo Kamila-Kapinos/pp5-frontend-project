@@ -1,0 +1,20 @@
+$base-dark: #A6603A;
+$base-light: #EFE3B8;
+
+$font-color-dark: #A6603A;
+$font-color-light: #EFE3B8;
+
+.btn-submit {
+  border: 2px solid $base-light !important;
+  color: $base-light;
+  background-color: transparent;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  margin-right: auto;
+}
+input[type="tel"] {
+  background-color: #D08C6B;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e9edf0;
+  border-radius: 0.375rem;
+}
