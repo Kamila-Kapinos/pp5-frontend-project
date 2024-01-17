@@ -1,8 +1,8 @@
-$base-dark: #A6603A;
-$base-light: #EFE3B8;
+$base-dark: #7F8E9A;
+$base-light: #d9d9d9;
 
-$font-color-dark: #A6603A;
-$font-color-light: #EFE3B8;
+$font-color-dark: #7F8E9A;
+$font-color-light: #d9d9d9;
 
 
 .about-bg {
@@ -11,7 +11,7 @@ $font-color-light: #EFE3B8;
 }
 
 .btn-shop-now {
-  border: 2px solid $base-light !important;
+  border: 1px solid $base-light !important;
   color: $base-light;
   background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
@@ -25,7 +25,7 @@ $font-color-light: #EFE3B8;
 }
 
 .btn-show-more {
-  border: 2px solid $base-dark !important;
+  border: 1px solid $base-dark !important;
   color: $font-color-dark !important;
   background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;

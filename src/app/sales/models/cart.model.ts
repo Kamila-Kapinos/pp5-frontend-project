@@ -7,4 +7,5 @@ export interface CartItem {
 
 export interface CartProduct extends CartItem {
     product: Product;
+    quantityError?: string;
 }

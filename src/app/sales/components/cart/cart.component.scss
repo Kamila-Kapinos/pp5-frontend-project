@@ -1,0 +1,139 @@
+$base-dark: #7F8E9A;
+$base-light: #d9d9d9;
+
+$font-color-dark: #7F8E9A;
+$font-color-light: #d9d9d9;
+
+$element-color: rgba(255, 255, 255, 0.74);
+
+h1 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.header {
+  font-weight: bold;
+  font-size: large;
+  border-bottom: 1px solid $element-color;
+  margin-bottom: 10px;
+  display: flex;
+}
+
+.offer-item {
+  margin-bottom: 10px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.col {
+  flex: 1;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.col-elements {
+  color: $font-color-dark;
+}
+
+input {
+  padding: 5px;
+  color: $font-color-dark;
+  background-color: $element-color;
+  border: 2px solid $base-dark;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: $base-dark;
+    color: $font-color-dark;
+  }
+}
+
+.btn-delete {
+  border: 2px solid $base-dark;
+  color: $base-light;
+  background-color: $base-dark;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border-radius: 5px;
+  margin-right: auto;
+
+  &:hover {
+    background-color: $base-light;
+    color: $base-dark !important;
+  }
+}
+
+select {
+  border: 2px solid $base-dark;
+  background-color: $base-dark;
+  color: $base-light;
+  width: 150px;
+  padding: 5px;
+}
+
+.container {
+  background-color: $element-color;
+  border: 1px solid #F5F5F5;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.cart-summary-box {
+  background-color: $element-color;
+  padding: 15px 7.5px; // zmniejszenie paddingu o połowę
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  text-align: right;
+  max-width: 50%; // dodanie maksymalnej szerokości
+  margin: 0 auto; // centralizacja elementu
+}
+
+.product-count {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+
+.cart-total {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-top: 10px;
+}
+
+
+.voucher-input {
+  margin-top: 20px;
+}
+
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: $font-color-dark;
+  font-size: 20px;
+}
+
+input[type="text"] {
+  padding: 8px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 8px 15px;
+  background-color: rgba(76, 175, 80, 0.63);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+
+
+
