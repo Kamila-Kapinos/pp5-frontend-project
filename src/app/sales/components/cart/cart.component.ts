@@ -32,9 +32,13 @@ export class CartComponent {
     }, 0);
   }
 
+  calcUnitsPrice(cartProduct: CartProduct): number {
+    return cartProduct.quantity * cartProduct.product.price;
+  }
+
   onChanged(cartProduct: CartProduct) {
-      this.cartService.update({productId: cartProduct.productId, quantity: cartProduct.quantity});
-      
+    this.cartService.update({productId: cartProduct.productId, quantity: cartProduct.quantity});
+
   }
 
   delete(cartProduct: CartProduct) {
