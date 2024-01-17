@@ -10,9 +10,10 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { CartComponent } from './sales/components/cart/cart.component';
 import { LogInComponent } from './customer/components/log-in/log-in.component';
 import { FormsModule } from '@angular/forms';
+import { ClientDataComponent } from './customer/components/client-data/client-data.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CartComponent, LogInComponent],
+  declarations: [AppComponent, HomeComponent, CartComponent, LogInComponent, ClientDataComponent],
   imports: [
     FormsModule,
     BrowserModule,
