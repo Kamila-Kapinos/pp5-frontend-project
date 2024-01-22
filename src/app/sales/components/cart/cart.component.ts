@@ -12,7 +12,7 @@ export class CartComponent implements OnInit{
 
   sum = 0;
   sumQuantity = 0;
-  voucherCode: string = '';
+  voucherCode = '';
 
   constructor( private cartService: CartService) {
   }
@@ -53,12 +53,16 @@ export class CartComponent implements OnInit{
     this.cartService.delete(cartProduct);
     this.calc();
   }
+
   applyVoucher() {
-    // Przekazanie kodu vouchera do usługi koszyka (zakładając, że usługa obsługuje vouchery)
-    this.cartService.applyVoucher(this.voucherCode).subscribe((result) => {
-      // Tutaj możesz obsłużyć odpowiedź z usługi, np. wyświetlić komunikat o sukcesie lub błędzie
-      console.log(result); // Przykładowa reakcja z usługi
-    });
+    if (this.voucherCode.toLowerCase() === 'vegan2024' && this.sum > 50) {
+      const discount = this.sum * 0.1;
+      this.sum -= discount;
+
+      console.log('Zastosowano zniżkę 10%');
+    } else {
+      console.log('Nieprawidłowy kod vouchera lub kwota w koszyku za niska');
+    }
   }
 
 
