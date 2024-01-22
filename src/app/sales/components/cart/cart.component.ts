@@ -55,7 +55,7 @@ export class CartComponent implements OnInit{
   }
 
   applyVoucher() {
-    if (this.voucherCode.toLowerCase() === 'vegan2024' && this.sum > 50) {
+    if (this.voucherCode === 'vegan2024' && this.sum > 50) {
       const discount = this.sum * 0.1;
       this.sum -= discount;
 
