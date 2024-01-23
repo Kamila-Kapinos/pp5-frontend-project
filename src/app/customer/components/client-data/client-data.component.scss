@@ -1,8 +1,8 @@
-$base-dark: #A6603A;
-$base-light: #EFE3B8;
+$base-dark: #7F8E9A;
+$base-light: #d9d9d9;
 
-$font-color-dark: #A6603A;
-$font-color-light: #EFE3B8;
+$font-color-dark: #7F8E9A;
+$font-color-light: #d9d9d9;
 
 .btn-submit {
   border: 2px solid $base-light !important;
@@ -11,10 +11,19 @@ $font-color-light: #EFE3B8;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-right: auto;
 }
+.btn-submit:hover {
+  background-color: $base-light;
+  color: $font-color-dark;
+}
+
 input[type="tel"] {
-  background-color: #D08C6B;
+  background-color: #d9d9d9;
   border-width: 1px;
   border-style: solid;
   border-color: #e9edf0;
   border-radius: 0.375rem;
 }
+
+//.client-data-form{
+//  margin: 10px;
+//}
