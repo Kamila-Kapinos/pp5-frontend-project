@@ -1,19 +1,16 @@
-import { Component } from '@angular/core';
-import {Product} from "../../models/product";
-import {ProductService} from "../../services/product.service";
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-soaps',
   templateUrl: './soaps.component.html',
-  styleUrls: ['./soaps.component.scss']
+  styleUrls: ['./soaps.component.scss'],
 })
-export class SoapsComponent {
-
+export class SoapsComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(
-    private productService: ProductService,
-  ) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.productService.getProducts().subscribe((products: Product[]) => {
