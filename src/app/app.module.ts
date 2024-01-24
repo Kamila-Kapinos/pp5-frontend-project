@@ -11,6 +11,7 @@ import { LogInComponent } from './customer/components/log-in/log-in.component';
 import { FormsModule } from '@angular/forms';
 import { ClientDataComponent } from './customer/components/client-data/client-data.component';
 import {PaginationModule} from "ngx-bootstrap/pagination";
+import {AlertModule} from "ngx-bootstrap/alert";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, LogInComponent, ClientDataComponent],
@@ -23,6 +24,7 @@ import {PaginationModule} from "ngx-bootstrap/pagination";
     CarouselModule.forRoot(),
     BsDropdownModule.forRoot(),
     PaginationModule,
+    AlertModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],
