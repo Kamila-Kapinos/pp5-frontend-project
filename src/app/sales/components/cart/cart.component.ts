@@ -12,7 +12,7 @@ export class CartComponent implements OnInit{
 
   sum = 0;
   sumQuantity = 0;
-  voucherCode: string = '';
+  voucherCode = '';
 
   constructor( private cartService: CartService) {
   }

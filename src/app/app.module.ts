@@ -7,13 +7,13 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { CartComponent } from './sales/components/cart/cart.component';
 import { LogInComponent } from './customer/components/log-in/log-in.component';
 import { FormsModule } from '@angular/forms';
 import { ClientDataComponent } from './customer/components/client-data/client-data.component';
+import {PaginationModule} from "ngx-bootstrap/pagination";
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CartComponent, LogInComponent, ClientDataComponent],
+  declarations: [AppComponent, HomeComponent, LogInComponent, ClientDataComponent],
   imports: [
     FormsModule,
     BrowserModule,
@@ -22,6 +22,7 @@ import { ClientDataComponent } from './customer/components/client-data/client-da
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     BsDropdownModule.forRoot(),
+    PaginationModule,
   ],
   providers: [],
   bootstrap: [AppComponent],
