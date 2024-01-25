@@ -1,18 +1,23 @@
 
-<form class="client-data-form">
+<form class="client-data-form" #form=ngForm (ngSubmit)="onSubmit(form)">
   <div class="row-cols-1">
     <label for="name" class="col-form-label">Name</label>
-    <input type="text" class="form-control" id="name" required>
+    <input type="text" class="form-control" id="name" name="name" #name=ngModel [(ngModel)]="customer.name" required>
+    <div *ngIf="name.touched && name.invalid" class="alert alert-danger">Please fill this field</div>
   </div>
 
   <div class="row-cols-1">
     <label for="lastName" class="col-form-label">Last name</label>
-    <input type="text" class="form-control" id="lastName" required>
+    <input type="text" class="form-control" id="lastName" name="lastName" #lastName=ngModel [(ngModel)]="customer.lastName" required>
+    <div *ngIf="lastName.touched && lastName.invalid" class="alert alert-danger">Please fill this field</div>
   </div>
 
   <div class="row-cols-1">
     <label for="email1" class="col-form-label">Email address</label>
-    <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" required>
+    <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" name="email"
+           #email=ngModel [(ngModel)]="customer.email" required>
+    <div *ngIf="email.touched && email.invalid" class="alert alert-danger">Please fill this field</div>
+
   </div>
 
   <div class="row-cols-1">
@@ -24,19 +29,23 @@
     <label for="phoneNumber" class="col-sm-2 col-form-label">Phone number</label>
     <div class="col-sm-10">
       <input type="tel" id="phoneNumber" name="phone"
-         pattern="+[0-9]{2}\s?[0-9]{3}\s?[0-9]{3}\s?[0-9]{3}\s?" value="+48 ">
+         pattern="\+[0-9]{2}\s?[0-9]{3}\s?[0-9]{3}\s?[0-9]{3}\s?" value="+48 "
+             #phone=ngModel [(ngModel)]="customer.phone">
+      <div *ngIf="phone.invalid" class="alert alert-danger">Please fill this field correctly or leave it blank</div>
     </div>
   </div>
 
   <div class="row-cols-1">
     <label for="street" class="col-form-label">Street</label>
-    <input type="text" class="form-control" id="street" required>
+    <input type="text" class="form-control" id="street" name="street" #street=ngModel [(ngModel)]="customer.street" required>
+    <div *ngIf="street.invalid && street.touched" class="alert alert-danger">Please fill this field</div>
   </div>
 
   <div class="row">
       <div class="col">
         <label for="houseNumber" class="col-form-label">House number</label>
-        <input type="text" class="form-control" id="houseNumber" required>
+        <input type="text" class="form-control" id="houseNumber" name="houseNumber" #houseNumber=ngModel [(ngModel)]="customer.houseNumber" required>
+        <div *ngIf="houseNumber.invalid && houseNumber.touched" class="alert alert-danger">Please fill this field</div>
       </div>
 
       <div class="col">
@@ -50,12 +59,14 @@
     <div class="col">
       <label for="postcode" class="col-form-label">Postcode</label>
       <input type="text" class="form-control" id="postcode"
-             pattern="[0-9]{2}[-\s]?[0-9]{3}" required>
+             pattern="[0-9]{2}[-\s]?[0-9]{3}" name="postcode" #postcode=ngModel [(ngModel)]="customer.postcode" required>
+      <div *ngIf="postcode.invalid && postcode.touched" class="alert alert-danger">Please fill this field correctly</div>
     </div>
 
     <div class="col">
       <label for="city" class="col-form-label">City</label>
-      <input type="text" class="form-control" id="city" required>
+      <input type="text" class="form-control" id="city" name="city" #city=ngModel [(ngModel)]="customer.city" required>
+      <div *ngIf="city.invalid && city.touched" class="alert alert-danger">Please fill this field</div>
     </div>
   </div>
 
