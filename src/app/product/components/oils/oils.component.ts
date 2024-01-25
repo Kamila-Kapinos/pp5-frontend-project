@@ -1,20 +1,16 @@
-import { Component } from '@angular/core';
-import {Product} from "../../models/product";
-import {ProductService} from "../../services/product.service";
-import {CartService} from "../../../sales/services/cart.service";
+import { Component, OnInit } from '@angular/core';
+import { Product } from '../../models/product';
+import { ProductService } from '../../services/product.service';
 
 @Component({
   selector: 'app-oils',
   templateUrl: './oils.component.html',
-  styleUrls: ['./oils.component.scss']
+  styleUrls: ['./oils.component.scss'],
 })
-export class OilsComponent {
-
+export class OilsComponent implements OnInit {
   products: Product[] = [];
 
-  constructor(
-    private productService: ProductService,
-  ) {}
+  constructor(private productService: ProductService) {}
 
   ngOnInit() {
     this.productService.getProducts().subscribe((products: Product[]) => {
@@ -22,5 +18,4 @@ export class OilsComponent {
       this.products = products;
     });
   }
-
 }
