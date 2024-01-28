@@ -2,12 +2,12 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import { CartProduct } from '../../models/cart.model';
-import { Router } from "@angular/router";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.scss']
+  styleUrls: ['./cart.component.scss'],
 })
 export class CartComponent implements OnInit {
   cartProducts: CartProduct[] = [];
@@ -16,8 +16,13 @@ export class CartComponent implements OnInit {
   voucherCode = '';
   voucherApplied = false;
   voucherError = '';
+  discount = 0;
+  sumWithDiscount = 0;
 
-  constructor(private cartService: CartService, private router: Router) {}
+  constructor(
+    private cartService: CartService,
+    private router: Router,
+  ) {}
 
   ngOnInit() {
     this.cartService.getCart().subscribe((cartProducts) => {
@@ -29,19 +34,21 @@ export class CartComponent implements OnInit {
       this.sumQuantity = quantity;
       this.calc();
     });
-
-    this.cartService.getDiscountedPrice().subscribe((discountedSum) => {
-      this.sum = discountedSum;
-      this.calc();
-    });
-
-    this.voucherApplied = this.cartService.isVoucherApplied();
   }
 
   calc() {
     this.sum = this.cartProducts.reduce((prev, curr) => {
       return prev + curr.quantity * curr.product.price;
     }, 0);
+
+    let sumWithDiscount = this.sum;
+    if (this.cartService.isVoucherApplied()) {
+      const discount = this.cartService.calcDiscount(this.sum);
+      sumWithDiscount -= discount;
+      this.discount = discount;
+    }
+
+    this.sumWithDiscount = sumWithDiscount;
   }
 
   calcUnitsPrice(cartProduct: CartProduct): number {
@@ -53,19 +60,22 @@ export class CartComponent implements OnInit {
       cartProduct.quantity = 1;
     }
 
-    this.cartService.update({ productId: cartProduct.productId, quantity: cartProduct.quantity });
+    this.cartService.update({
+      productId: cartProduct.productId,
+      quantity: cartProduct.quantity,
+    });
     this.calc();
     this.applyVoucher();
   }
 
   delete(cartProduct: CartProduct) {
-    this.cartProducts = this.cartProducts.filter((el) => el.productId !== cartProduct.productId);
+    this.cartProducts = this.cartProducts.filter(
+      (el) => el.productId !== cartProduct.productId,
+    );
     this.cartService.delete(cartProduct);
     this.calc();
     this.applyVoucher();
   }
-
-
 
   applyVoucher() {
     if (this.voucherApplied) {
@@ -73,30 +83,23 @@ export class CartComponent implements OnInit {
       return;
     }
 
-    this.cartService.checkVoucher(this.voucherCode).subscribe((isValid) => {
+    this.cartService.applyVoucher(this.voucherCode).subscribe((isValid) => {
       if (isValid) {
-        this.cartService.applyVoucher(this.voucherCode, this.sum).subscribe((result) => {
-          console.log(result);
-
-          if (result.success) {
-            this.sum = result.discountedSum;
-            this.voucherApplied = true;
-            this.voucherError = ''; // Usunięcie błędu po poprawnym zastosowaniu kuponu
-          } else {
-            this.voucherError = 'Failed to apply voucher. ' + result.message;
-          }
-        });
+        this.calc();
+        this.voucherError = '';
       } else {
-        this.voucherError = 'Invalid voucher code';
+        this.voucherError = 'Failed to apply voucher.';
       }
     });
   }
 
-
-
-
   isNextPageButtonDisabled(): boolean {
-    return !(this.cartProducts.length > 0 && this.sum > 0 && this.sumQuantity > 0 && this.isVoucherCodeValid());
+    return !(
+      this.cartProducts.length > 0 &&
+      this.sum > 0 &&
+      this.sumQuantity > 0 &&
+      this.isVoucherCodeValid()
+    );
   }
 
   private isVoucherCodeValid(): boolean {
@@ -117,7 +120,9 @@ export class CartComponent implements OnInit {
       console.log(`Navigating to page ${pageNumber}`);
       this.router.navigate(['/clientData']);
     } else {
-      console.log('Cannot proceed to the next page. Cart is empty or data is incorrect.');
+      console.log(
+        'Cannot proceed to the next page. Cart is empty or data is incorrect.',
+      );
     }
   }
 }
