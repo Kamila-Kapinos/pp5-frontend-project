@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Customer} from "../../models/customer";
-import {NgForm} from "@angular/forms";
+import { NgForm } from "@angular/forms";
+// import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-client-data',
@@ -10,6 +11,9 @@ import {NgForm} from "@angular/forms";
 export class ClientDataComponent {
 
   customer = new Customer();
+
+  // constructor(private router: Router) {
+  // }
 
   onSubmit(form: NgForm){
     if(form.valid && form.submitted){
@@ -21,4 +25,17 @@ export class ClientDataComponent {
     }
   }
 
+  // goToNextPage(page: number, form: NgForm) {
+  //   if (!this.isNextPageButtonDisabled(form)) {
+  //     console.log(`Navigating to page ${page}`);
+  //     // TODO change path to 3rd form when created
+  //     this.router.navigate(['/clientData']);
+  //   } else {
+  //     console.log('Cannot proceed to the next page. Cart is empty or data is incorrect.');
+  //   }
+  // }
+  //
+  // isNextPageButtonDisabled(form: NgForm) {
+  //   return !(form.valid && form.submitted);
+  // }
 }

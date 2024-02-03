@@ -18,6 +18,7 @@ const routes: Routes = [
     loadChildren: () =>
       import('./sales/sales.module').then((m) => m.SalesModule),
   },
+
 ];
 
 @NgModule({
