@@ -12,9 +12,10 @@ import { FormsModule } from '@angular/forms';
 import { ClientDataComponent } from './customer/components/client-data/client-data.component';
 import {PaginationModule} from "ngx-bootstrap/pagination";
 import {AlertModule} from "ngx-bootstrap/alert";
+import { ShippingComponent } from './customer/components/shipping/shipping.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LogInComponent, ClientDataComponent],
+  declarations: [AppComponent, HomeComponent, LogInComponent, ClientDataComponent, ShippingComponent],
   imports: [
     FormsModule,
     BrowserModule,
