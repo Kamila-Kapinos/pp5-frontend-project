@@ -7,14 +7,14 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { LogInComponent } from './customer/components/log-in/log-in.component';
+import { LogInComponent } from './sales/components/log-in/log-in.component';
 import { FormsModule } from '@angular/forms';
-import { ClientDataComponent } from './customer/components/client-data/client-data.component';
 import {PaginationModule} from "ngx-bootstrap/pagination";
 import {AlertModule} from "ngx-bootstrap/alert";
+import { ShippingComponent } from './sales/components/shipping/shipping.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LogInComponent, ClientDataComponent],
+  declarations: [AppComponent, HomeComponent, LogInComponent],
   imports: [
     FormsModule,
     BrowserModule,
@@ -28,5 +28,7 @@ import {AlertModule} from "ngx-bootstrap/alert";
   ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [
+  ]
 })
 export class AppModule {}

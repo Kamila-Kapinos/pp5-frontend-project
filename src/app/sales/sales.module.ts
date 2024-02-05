@@ -6,11 +6,14 @@ import {FormsModule} from "@angular/forms";
 import {PaginationModule} from "ngx-bootstrap/pagination";
 import {CartComponent} from "./components/cart/cart.component";
 import {AlertModule} from "ngx-bootstrap/alert";
+import { FormsComponent } from './components/forms/forms.component';
+import {ClientDataComponent} from "./components/client-data/client-data.component";
+import {ShippingComponent} from "./components/shipping/shipping.component";
 
 
 
 @NgModule({
-  declarations: [CartComponent],
+  declarations: [CartComponent, FormsComponent, ClientDataComponent, ShippingComponent],
   imports: [
     CommonModule,
     SalesRoutingModule, RouterModule, FormsModule, PaginationModule, AlertModule

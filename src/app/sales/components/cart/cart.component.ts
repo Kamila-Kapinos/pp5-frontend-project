@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
+
 export class CartComponent implements OnInit {
   cartProducts: CartProduct[] = [];
   sum = 0;

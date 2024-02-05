@@ -1,0 +1,12 @@
+<!-- to enter this go to: /sales/forms -->
+
+
+<div *ngIf="getCurrentPage()==1"><app-cart></app-cart></div>
+<!-- linijka ponizej nie działa, bo client data jest w innym module? -->
+<div *ngIf="getCurrentPage()==2"><app-client-data></app-client-data></div>
+
+<div *ngIf="getCurrentPage()==3"><app-shipping></app-shipping></div>
+
+<div class="pagination-container">
+  <pagination [totalItems]="30" (pageChanged)="goToNextPage($event.page)" [disabled]="isNextPageButtonDisabled()"></pagination>
+</div>
