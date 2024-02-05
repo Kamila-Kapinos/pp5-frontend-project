@@ -1,41 +1,36 @@
-import { Component } from '@angular/core';
-import { Customer} from "../../models/customer";
-import { NgForm } from "@angular/forms";
-// import { Router } from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ClientService } from '../../services/client.service';
+import { Customer } from '../../models/customer';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-client-data',
   templateUrl: './client-data.component.html',
-  styleUrls: ['./client-data.component.scss']
+  styleUrls: ['./client-data.component.scss'],
 })
-export class ClientDataComponent {
+export class ClientDataComponent implements OnInit {
+  customer: Customer = new Customer();
+  constructor(
+    private clientService: ClientService,
+    private router: Router,
+  ) {}
 
-  customer = new Customer();
+  ngOnInit() {
+    this.customer = this.clientService.getClient() || new Customer();
+  }
 
-  // constructor(private router: Router) {
-  // }
-
-  onSubmit(form: NgForm){
-    if(form.valid && form.submitted){
-      console.log(form.value)
-    //   TODO dodać gdzieś tego klienta
-    }
-    else{
-      console.log("Nie dodano klienta, formularz niepoprawny")
+  onSubmit(form: NgForm) {
+    if (form.valid && form.submitted) {
+      this.clientService.updateClient(this.customer);
+      console.log('Dane klienta zostały zapisane:', this.customer);
+      this.router.navigate(['/sales/shipping']);
+    } else {
+      console.log('Nie dodano klienta, formularz niepoprawny');
     }
   }
 
-  // goToNextPage(page: number, form: NgForm) {
-  //   if (!this.isNextPageButtonDisabled(form)) {
-  //     console.log(`Navigating to page ${page}`);
-  //     // TODO change path to 3rd form when created
-  //     this.router.navigate(['/clientData']);
-  //   } else {
-  //     console.log('Cannot proceed to the next page. Cart is empty or data is incorrect.');
-  //   }
-  // }
-  //
-  // isNextPageButtonDisabled(form: NgForm) {
-  //   return !(form.valid && form.submitted);
-  // }
+  isNextPageButtonDisabled(form: NgForm) {
+    return !form.valid;
+  }
 }
