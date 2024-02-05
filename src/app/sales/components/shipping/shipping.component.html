@@ -4,36 +4,35 @@
   <h2>Shipping methods</h2>
   <div class="form-check">
     <div>
-      <input type="radio" class="form-check-input" id="home" name="shipping" value="home delivery" [(ngModel)]="shippingPayment.shippingMethod">
+      <input type="radio" class="form-check-input" id="home" name="shipping" value="home delivery" [(ngModel)]="shippingPayment.shippingMethod" required>
       <label for="home" class="form-check-label">Home delivery</label>
     </div>
 
     <div>
-      <input type="radio" class="form-check-input" id="point" name="shipping" value="delivery point" [(ngModel)]="shippingPayment.shippingMethod">
+      <input type="radio" class="form-check-input" id="point" name="shipping" value="delivery point" [(ngModel)]="shippingPayment.shippingMethod" required>
       <label for="point" class="form-check-label">Shipping to a delivery point</label>
     </div>
 
     <div>
-      <input type="radio" class="form-check-input" id="store" name="shipping" value="delivery to a store" [(ngModel)]="shippingPayment.shippingMethod">
+      <input type="radio" class="form-check-input" id="store" name="shipping" value="delivery to a store" [(ngModel)]="shippingPayment.shippingMethod" required>
       <label for="store" class="form-check-label">Shipping to a store</label>
-      <div class="invalid-feedback">More example invalid feedback text</div>
     </div>
   </div>
 
   <h2>Payment methods</h2>
   <div class="form-check">
     <div>
-      <input type="radio" class="form-check-input" id="PayU" name="payment" value="PayU" [(ngModel)]="shippingPayment.paymentMethod">
+      <input type="radio" class="form-check-input" id="PayU" name="payment" value="PayU" [(ngModel)]="shippingPayment.paymentMethod" required>
       <label for="PayU" class="form-check-label">PayU</label>
     </div>
 
     <div>
-      <input type="radio" class="form-check-input" id="card" name="payment" value="card" [(ngModel)]="shippingPayment.paymentMethod">
+      <input type="radio" class="form-check-input" id="card" name="payment" value="card" [(ngModel)]="shippingPayment.paymentMethod" required>
       <label for="card" class="form-check-label">Card payment</label>
     </div>
 
     <div>
-      <input type="radio" class="form-check-input" id="cash" name="payment" value="cash on delivery" [(ngModel)]="shippingPayment.paymentMethod">
+      <input type="radio" class="form-check-input" id="cash" name="payment" value="cash on delivery" [(ngModel)]="shippingPayment.paymentMethod" required>
       <label for="cash" class="form-check-label">Cash on delivery</label>
     </div>
   </div>

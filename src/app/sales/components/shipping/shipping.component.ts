@@ -33,8 +33,7 @@ export class ShippingComponent implements OnInit {
   }
 
   isNextPageButtonDisabled(form: NgForm) {
-    return !(form.valid && form.touched);
-    //TODO naprawic bo jak zapisze sie na sesji i wroci sie to mimo ze sa zaznaczone nie przepuszcza
+    return !(form.valid);
   }
 
   goToClientData() {
