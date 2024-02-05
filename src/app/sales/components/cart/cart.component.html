@@ -1,5 +1,4 @@
 <div *ngIf="cartProducts" class="product-container">
-  <!--  products, productsCount, total -->
   <h1>Products in cart:</h1>
   <div class="row header">
     <div class="col">Product name</div>
@@ -35,16 +34,15 @@
       </div>
     </div>
   </div>
-<!--  fix this box-->
+
   <div class="cart-summary-box">
     <div class="product-count">All products in cart: {{ sumQuantity }}</div>
     <div class="cart-total">Cart total: {{ sum | currency:'USD':'symbol':'1.2-2' }}</div>
-    <!-- cart.component.html -->
     <div class="voucher-input">
       <label for="voucherCode">Enter voucher code:</label>
       <input type="text" id="voucherCode" placeholder="Enter your voucher code" [(ngModel)]="voucherCode">
       <button (click)="applyVoucher()">Apply</button>
-      <div *ngIf="voucherError" class="voucher-error">{{ voucherError }}</div>
+<!--      <div *ngIf="voucherError" class="voucher-error">{{ voucherError }}</div>-->
       <alert *ngIf="voucherApplied" type="success" [dismissOnTimeout]="4000">
         <strong>Voucher applied successfully!</strong>
       </alert>
@@ -53,15 +51,10 @@
       <div class="cart-total">Discount: {{ discount | currency:'USD':'symbol':'1.2-2' }}</div>
       <div class="cart-total">Cart total with discount: {{ sumWithDiscount | currency:'USD':'symbol':'1.2-2' }}</div>
     </div>
-
-
   </div>
-
 
 </div>
 
-<!-- current-page.component.html -->
-<!-- cart.component.html -->
 <div class="pagination-container">
   <pagination [totalItems]="30" (pageChanged)="goToNextPage($event.page)" [disabled]="isNextPageButtonDisabled()"></pagination>
 </div>

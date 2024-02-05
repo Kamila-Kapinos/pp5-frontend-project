@@ -79,7 +79,7 @@ export class CartComponent implements OnInit {
 
   applyVoucher() {
     if (this.voucherApplied) {
-      this.voucherError = 'Voucher already applied';
+      // this.voucherError = 'Voucher already applied';
       return;
     }
 
