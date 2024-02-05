@@ -4,8 +4,6 @@ import { ShippingPayment } from '../../models/shipping-payment.model';
 import { ShippingService } from '../../services/shipping.service';
 import { Router } from '@angular/router';
 
-// Import necessary modules and services
-
 @Component({
   selector: 'app-shipping',
   templateUrl: './shipping.component.html',
