@@ -9,7 +9,6 @@ import { Router } from '@angular/router';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.scss'],
 })
-
 export class CartComponent implements OnInit {
   cartProducts: CartProduct[] = [];
   sum = 0;
@@ -113,13 +112,13 @@ export class CartComponent implements OnInit {
       return isValid;
     }
 
-    return true; // Jeśli brak kuponu, to uznajemy za poprawne
+    return true;
   }
 
   goToNextPage(pageNumber: number): void {
     if (!this.isNextPageButtonDisabled()) {
       console.log(`Navigating to page ${pageNumber}`);
-      this.router.navigate(['/clientData']);
+      this.router.navigate(['sales/client-data']);
     } else {
       console.log(
         'Cannot proceed to the next page. Cart is empty or data is incorrect.',
