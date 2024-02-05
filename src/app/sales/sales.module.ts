@@ -9,15 +9,18 @@ import {AlertModule} from "ngx-bootstrap/alert";
 import { FormsComponent } from './components/forms/forms.component';
 import {ClientDataComponent} from "./components/client-data/client-data.component";
 import {ShippingComponent} from "./components/shipping/shipping.component";
+import { SummaryComponent } from './components/summary/summary.component';
+import {BsModalService} from "ngx-bootstrap/modal";
 
 
 
 @NgModule({
-  declarations: [CartComponent, FormsComponent, ClientDataComponent, ShippingComponent],
+  declarations: [CartComponent, FormsComponent, ClientDataComponent, ShippingComponent, SummaryComponent],
   imports: [
     CommonModule,
     SalesRoutingModule, RouterModule, FormsModule, PaginationModule, AlertModule
-  ]
+  ],
+  providers: [BsModalService],
 })
 export class SalesModule {
 }

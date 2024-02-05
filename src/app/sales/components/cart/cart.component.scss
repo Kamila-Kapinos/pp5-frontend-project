@@ -126,11 +126,27 @@ input[type="text"] {
 
 button {
   padding: 8px 15px;
-  background-color: rgba(76, 175, 80, 0.63);
-  color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
+}
+
+.apply-button{
+  color: white;
+  background-color: rgba(76, 175, 80, 0.63);
+}
+
+.arrow-button{
+  color: $base-dark;
+}
+
+.right-arrow-button-div{
+  text-align: right;
+}
+
+.arrows-row{
+  padding-top: calc(0.375rem + var(--bs-border-width));
+  padding-bottom: calc(0.375rem + var(--bs-border-width));
 }
 
 .pagination-container {

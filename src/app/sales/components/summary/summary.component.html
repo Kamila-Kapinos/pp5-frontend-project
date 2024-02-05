@@ -1,0 +1,32 @@
+
+<h1>Checkout Summary</h1>
+
+<div class="row arrows-row">
+  <div class="col left-arrow-button-div">
+    <button class="svg-button arrow-button" [routerLink]="['/sales/shipping']" >
+      <i class="fa-solid fa-arrow-left"></i> Shipping and payment options
+    </button>
+  </div>
+
+  <div class="col right-arrow-button-div">
+      <button class="btn-submit arrow-button"  (click)="openModal(template)">
+        Place order
+      </button>
+
+    <ng-template #template>
+      <div class="template">
+        <div class="modal-header">
+          <h4 class="modal-title pull-left">Order placed</h4>
+          <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+            <span aria-hidden="true" class="visually-hidden">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Your order was successfully placed
+        </div>
+      </div>
+
+    </ng-template>
+
+  </div>
+</div>
