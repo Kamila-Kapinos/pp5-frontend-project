@@ -1,21 +1,20 @@
-
 <h1>Shipping and payment options</h1>
-<form #shipForm=ngForm>
+<form #shipForm="ngForm" (ngSubmit)="onSubmit(shipForm)">
 
   <h2>Shipping methods</h2>
   <div class="form-check">
     <div>
-      <input type="radio" class="form-check-input"  id="home" name="shipping" value="home delivery" ngModel>
+      <input type="radio" class="form-check-input" id="home" name="shipping" value="home delivery" [(ngModel)]="shippingPayment.shippingMethod">
       <label for="home" class="form-check-label">Home delivery</label>
     </div>
 
     <div>
-      <input type="radio" class="form-check-input" id="point" name="shipping" value="delivery point" ngModel>
+      <input type="radio" class="form-check-input" id="point" name="shipping" value="delivery point" [(ngModel)]="shippingPayment.shippingMethod">
       <label for="point" class="form-check-label">Shipping to a delivery point</label>
     </div>
 
     <div>
-      <input type="radio" class="form-check-input" id="store" name="shipping" value="delivery to a store" ngModel>
+      <input type="radio" class="form-check-input" id="store" name="shipping" value="delivery to a store" [(ngModel)]="shippingPayment.shippingMethod">
       <label for="store" class="form-check-label">Shipping to a store</label>
       <div class="invalid-feedback">More example invalid feedback text</div>
     </div>
@@ -24,33 +23,32 @@
   <h2>Payment methods</h2>
   <div class="form-check">
     <div>
-      <input type="radio" class="form-check-input"  id="PayU" name="payment" value="PayU" ngModel>
+      <input type="radio" class="form-check-input" id="PayU" name="payment" value="PayU" [(ngModel)]="shippingPayment.paymentMethod">
       <label for="PayU" class="form-check-label">PayU</label>
     </div>
 
     <div>
-      <input type="radio" class="form-check-input" id="card" name="payment" value="card" ngModel>
+      <input type="radio" class="form-check-input" id="card" name="payment" value="card" [(ngModel)]="shippingPayment.paymentMethod">
       <label for="card" class="form-check-label">Card payment</label>
     </div>
 
     <div>
-      <input type="radio" class="form-check-input" id="cash" name="payment" value="cash on delivery" ngModel>
+      <input type="radio" class="form-check-input" id="cash" name="payment" value="cash on delivery" [(ngModel)]="shippingPayment.paymentMethod">
       <label for="cash" class="form-check-label">Cash on delivery</label>
     </div>
   </div>
 
+  <div class="row arrows-row">
+    <div class="col left-arrow-button-div">
+      <button class="svg-button arrow-button" (click)="goToClientData()">
+        <i class="fa-solid fa-arrow-left"></i> Contact and shipping information
+      </button>
+    </div>
+
+    <div class="col right-arrow-button-div">
+      <button class="svg-button arrow-button" type="submit" [disabled]="isNextPageButtonDisabled(shipForm)">
+        Checkout Summary <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
 </form>
-
-<div class="row arrows-row">
-  <div class="col left-arrow-button-div">
-    <button class="svg-button arrow-button" [routerLink]="['/sales/client-data']" >
-      <i class="fa-solid fa-arrow-left"></i> Contact and shipping information
-    </button>
-  </div>
-
-  <div class="col right-arrow-button-div">
-    <button class="svg-button arrow-button" [routerLink]="['/sales/summary']" [disabled]="isNextPageButtonDisabled(shipForm)" >
-      Checkout Summary <i class="fa-solid fa-arrow-right"></i>
-    </button>
-  </div>
-</div>
