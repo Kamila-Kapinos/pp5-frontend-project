@@ -1,7 +1,6 @@
-
 <h1>Contact and shipping information</h1>
 
-<form class="client-data-form" #form=ngForm >  <!-- (ngSubmit)="onSubmit(form)"-->
+<form class="client-data-form" #form="ngForm" (ngSubmit)="onSubmit(form)">
   <div class="row-cols-1">
     <label for="name" class="col-form-label">Name</label>
     <input type="text" class="form-control" id="name" name="name" #name=ngModel [(ngModel)]="customer.name" required>
@@ -72,22 +71,19 @@
     </div>
   </div>
 
-<!--  <div class="col-form-label">-->
-<!--    <button type="submit" class="btn btn-submit">Submit</button>-->
-<!--  </div>-->
+
+  <div class="row arrows-row">
+    <div class="col left-arrow-button-div">
+      <button class="svg-button arrow-button" [routerLink]="['/sales/cart']">
+        <i class="fa-solid fa-arrow-left"></i> Products in cart
+      </button>
+    </div>
+
+    <div class="col right-arrow-button-div">
+      <button class="svg-button arrow-button" type="submit" [disabled]="isNextPageButtonDisabled(form)">
+        Shipping and payment options <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+  </div>
 
 </form>
-
-<div class="row arrows-row">
-  <div class="col left-arrow-button-div">
-    <button class="svg-button arrow-button" [routerLink]="['/sales/cart']" >
-      <i class="fa-solid fa-arrow-left"></i> Products in cart
-    </button>
-  </div>
-
-  <div class="col right-arrow-button-div">
-    <button class="svg-button arrow-button" [routerLink]="['/sales/shipping']" [disabled]="isNextPageButtonDisabled(form)" >
-      Shipping and payment options <i class="fa-solid fa-arrow-right"></i>
-    </button>
-  </div>
-</div>

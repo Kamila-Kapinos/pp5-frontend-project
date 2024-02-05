@@ -1,4 +1,3 @@
-// cart.service.ts
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -6,9 +5,7 @@ import { CartItem, CartProduct } from '../models/cart.model';
 import { ProductService } from 'src/app/product/services/product.service';
 
 const CART_SESSION_NAME = 'cart-session-name';
-const DISCOUNTED_SUM_KEY = 'discounted-sum';
 const VOUCHER_CODE_KEY = 'voucher-code';
-const VOUCHER_APPLIED_KEY = 'voucher-applied';
 
 @Injectable({
   providedIn: 'root',

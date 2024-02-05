@@ -7,14 +7,12 @@ import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
-import { LogInComponent } from './sales/components/log-in/log-in.component';
 import { FormsModule } from '@angular/forms';
-import {PaginationModule} from "ngx-bootstrap/pagination";
-import {AlertModule} from "ngx-bootstrap/alert";
-import { ShippingComponent } from './sales/components/shipping/shipping.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { AlertModule } from 'ngx-bootstrap/alert';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, LogInComponent],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     FormsModule,
     BrowserModule,
@@ -24,11 +22,10 @@ import { ShippingComponent } from './sales/components/shipping/shipping.componen
     CarouselModule.forRoot(),
     BsDropdownModule.forRoot(),
     PaginationModule,
-    AlertModule.forRoot()
+    AlertModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent],
-  exports: [
-  ]
+  exports: [],
 })
 export class AppModule {}
