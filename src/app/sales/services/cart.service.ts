@@ -18,16 +18,14 @@ export class CartService {
 
   constructor(private productService: ProductService) {
     this.products = this.getSession();
-    this.sum = this.getDiscountedSumFromStorage() || 0;
     this.voucherCode = this.getVoucherCodeFromStorage() || '';
-    this.voucherApplied = this.getVoucherAppliedFromStorage() || false;
     this.refreshProductsQuantity();
+    this.setVoucherValidity();
   }
 
-  products: CartItem[] = [];
-  sum = 0;
-  voucherCode = '';
-  voucherApplied = false;
+  private readonly products: CartItem[] = [];
+  private voucherCode = '';
+  private voucherApplied = false;
 
   getProductsQuantity(): Observable<number> {
     return this.subjectProductsQuantity.asObservable();
@@ -57,14 +55,16 @@ export class CartService {
               };
             })
             .filter((el) => !!el.product);
-        })
+        }),
       );
     }
     return of([]);
   }
 
   update(cartItem: CartItem) {
-    const index = this.products.findIndex((el) => el.productId === cartItem.productId);
+    const index = this.products.findIndex(
+      (el) => el.productId === cartItem.productId,
+    );
     if (index !== -1) {
       this.products.splice(index, 1, cartItem);
       this.refreshSession();
@@ -72,64 +72,56 @@ export class CartService {
   }
 
   delete(cartItem: CartItem) {
-    const index = this.products.findIndex((el) => el.productId === cartItem.productId);
+    const index = this.products.findIndex(
+      (el) => el.productId === cartItem.productId,
+    );
     if (index !== -1) {
       this.products.splice(index, 1);
       this.refreshSession();
     }
   }
 
-  applyVoucher(voucherCode: string, sum: number): Observable<any> {
-    if (this.voucherApplied) {
-      console.log('Voucher already applied');
-      return of({ success: false, message: 'Voucher already applied' });
-    }
+  getDiscount() {
+    return this.isVoucherApplied() ? 0.1 : 0;
+  }
+  calcDiscount(value: number) {
+    return value * this.getDiscount();
+  }
 
-    this.sum = sum;
-
-    const voucherCheckResult = this.checkVoucherValidity(voucherCode);
-
-    if (voucherCheckResult.success) {
-      const discount = this.sum * 0.1;
-      this.sum -= discount;
-
-      this.voucherCode = voucherCode;
-      this.voucherApplied = true;
-
-      this.saveDiscountedSumToStorage();
-      this.saveVoucherCodeToStorage();
-      this.saveVoucherAppliedToStorage();
-
-      console.log(`Voucher applied successfully. Discount applied: ${voucherCheckResult.discount}%`);
-      return of({
-        success: true,
-        message: 'Voucher applied successfully.',
-        discountedSum: this.sum,
-        discount: voucherCheckResult.discount,
-      });
+  private setVoucherValidity() {
+    if (this.voucherCode) {
+      const voucherCheckResult = this.checkVoucherValidity(this.voucherCode);
+      if (voucherCheckResult) {
+        this.voucherApplied = true;
+      } else {
+        this.voucherApplied = false;
+      }
     } else {
-      console.log(voucherCheckResult.message);
-      return of({ success: false, message: voucherCheckResult.message });
+      this.voucherApplied = false;
     }
   }
 
-  checkVoucher(voucherCode: string): Observable<any> {
+  applyVoucher(voucherCode: string): Observable<boolean> {
+    this.voucherCode = voucherCode;
+    this.setVoucherValidity();
+
+    if (this.voucherApplied) {
+      this.voucherCode = voucherCode;
+      this.saveVoucherCodeToStorage();
+      return of(true);
+    } else {
+      return of(false);
+    }
+  }
+
+  checkVoucher(voucherCode: string): Observable<boolean> {
     const voucherCheckResult = this.checkVoucherValidity(voucherCode);
     return of(voucherCheckResult);
   }
 
-  private checkVoucherValidity(voucherCode: string): { success: boolean; message: string; discount?: number } {
+  private checkVoucherValidity(voucherCode: string): boolean {
     // Simulating backend voucher validity check
-    if (voucherCode === 'vegan2024' && this.sum > 50) {
-      return { success: true, message: 'Voucher code is valid.', discount: 10 };
-    } else {
-      return { success: false, message: 'Invalid voucher code or sum too low' };
-    }
-  }
-
-  getDiscountedPrice(): Observable<number> {
-    const discountedSum = this.getDiscountedSumFromStorage();
-    return of(discountedSum || 0);
+    return voucherCode === 'vegan2024';
   }
 
   isVoucherApplied(): boolean {
@@ -139,9 +131,7 @@ export class CartService {
   private refreshSession() {
     this.saveSession();
     this.refreshProductsQuantity();
-    this.saveDiscountedSumToStorage();
     this.saveVoucherCodeToStorage();
-    this.saveVoucherAppliedToStorage();
   }
 
   private refreshProductsQuantity() {
@@ -170,29 +160,11 @@ export class CartService {
     return [];
   }
 
-  private saveDiscountedSumToStorage() {
-    sessionStorage.setItem(DISCOUNTED_SUM_KEY, JSON.stringify(this.sum));
-  }
-
-  private getDiscountedSumFromStorage() {
-    const discountedSum = sessionStorage.getItem(DISCOUNTED_SUM_KEY);
-    return discountedSum ? JSON.parse(discountedSum) : null;
-  }
-
   private saveVoucherCodeToStorage() {
     sessionStorage.setItem(VOUCHER_CODE_KEY, this.voucherCode);
   }
 
   private getVoucherCodeFromStorage() {
     return sessionStorage.getItem(VOUCHER_CODE_KEY) || '';
-  }
-
-  private saveVoucherAppliedToStorage() {
-    sessionStorage.setItem(VOUCHER_APPLIED_KEY, JSON.stringify(this.voucherApplied));
-  }
-
-  private getVoucherAppliedFromStorage() {
-    const voucherApplied = sessionStorage.getItem(VOUCHER_APPLIED_KEY);
-    return voucherApplied ? JSON.parse(voucherApplied) : null;
   }
 }
