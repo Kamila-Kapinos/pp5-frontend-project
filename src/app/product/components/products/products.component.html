@@ -1,18 +1,11 @@
 <h1>Welcome on our products page</h1>
-<!--<div *ngIf="products">-->
-<!--  <div *ngFor="let product of products">-->
-<!--    <h2>{{product.name}}</h2>-->
-<!--    <p>price: {{product.price}}</p>-->
-<!--    <img src="{{product.image}}">-->
-<!--  </div>-->
-<!--</div>-->
 
 <div *ngIf="products" class="product-container">
   <div *ngFor="let product of products" class="product-item">
     <button class="btn btn-product-details" [routerLink]="['/products/details', product.id]">{{ product.name }}</button>
     <img class="mt-3" src="{{ product.image }}" alt="{{ product.name }}">
     <p>Price: {{ product.price }}</p>
-    <button class="btn btn-add-to-card" (click)="initializeAddToCartHandler(product.id)">Add to cart</button>
+    <button class="btn btn-add-to-card" (click)="initializeAddToCartHandler(product.id, product.name)">Add to cart</button>
   </div>
 </div>
 

@@ -23,12 +23,13 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  initializeAddToCartHandler(productId: string | null): void {
+  initializeAddToCartHandler(
+    productId: string | null,
+    productName: string,
+  ): void {
     if (productId !== null) {
-      if (this.cartService.handleAddToCart(productId)) {
-        console.log(
-          'OK'
-        );
+      if (this.cartService.handleAddToCart(productId, productName)) {
+        console.log('OK');
       } else {
         console.error('Błąd podczas dodawania do koszyka');
       }
