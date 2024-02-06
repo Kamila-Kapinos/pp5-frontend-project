@@ -28,12 +28,16 @@ export class CartService {
     return this.subjectProductsQuantity.asObservable();
   }
 
-  handleAddToCart(productId: string, quantity = 1): boolean {
+  handleAddToCart(
+    productId: string,
+    productName: string,
+    quantity = 1,
+  ): boolean {
     const exist = this.products.find((el) => el.productId === productId);
     if (exist) {
       exist.quantity++;
     } else {
-      this.products.push({ productId, quantity });
+      this.products.push({ productId, productName, quantity });
     }
     this.refreshSession();
 
