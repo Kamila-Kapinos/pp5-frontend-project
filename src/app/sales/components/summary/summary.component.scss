@@ -37,3 +37,21 @@ button {
 .modal-header{
   border-bottom-color: transparent;
 }
+
+.form-control{
+  color: #333333;
+}
+
+.form-control[disabled] {
+  background-color: #f2f2f2;
+  color: #a8a8a8;
+  border: 1px solid #c0c0c0;
+  cursor: not-allowed;
+}
+
+//.client-data-preview-form {
+//  max-width: 400px;
+//  margin: auto;
+//  padding: 20px;
+//}
+
