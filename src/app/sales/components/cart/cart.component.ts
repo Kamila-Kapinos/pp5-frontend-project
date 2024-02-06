@@ -75,6 +75,9 @@ export class CartComponent implements OnInit {
     this.cartService.delete(cartProduct);
     this.calc();
     this.applyVoucher();
+    if (this.cartProducts.length === 0) {
+      sessionStorage.clear();
+    }
   }
 
   applyVoucher() {
