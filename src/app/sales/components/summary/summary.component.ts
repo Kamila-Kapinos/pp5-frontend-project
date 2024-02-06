@@ -1,5 +1,6 @@
 import {Component, TemplateRef} from '@angular/core';
 import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
+import {SummaryService} from "../../services/summary.service";
 
 
 @Component({
@@ -10,11 +11,36 @@ import {BsModalRef, BsModalService} from "ngx-bootstrap/modal";
 
 export class SummaryComponent{
   modalRef?: BsModalRef;
+  products;
+  city;
+  email;
+  houseNumber;
+  lastName;
+  name;
+  phone;
+  postcode;
+  street
 
 
-  test = sessionStorage.getItem('shipping-method') || "";
-  constructor(private modalService: BsModalService) {}
+  constructor(private modalService: BsModalService, private summaryService: SummaryService) {
+    this.products = summaryService.getCartProducts()
+    this.city = summaryService.getCity();
+    this.email = summaryService.getEmail();
+    this.houseNumber = summaryService.getHouseNumber();
+    this.lastName = summaryService.getLastName();
+    this.name = summaryService.getName();
+    this.phone = summaryService.getPhone();
+    this.postcode = summaryService.getPostcode();
+    this.street = summaryService.getStreet();
 
+
+  }
+
+  getProductName(id: string){
+    let productName;
+    this.summaryService.getProductName(id).subscribe((name: string) => {productName = name});
+    return productName;
+  }
   openModal(template: TemplateRef<void>) {
     this.modalRef = this.modalService.show(template);
   }
