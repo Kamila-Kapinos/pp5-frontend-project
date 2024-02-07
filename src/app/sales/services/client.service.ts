@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Customer } from '../models/customer';
+import { SummaryService } from './summary.service';
 
 const CLIENT_SESSION_NAME = 'client-session-name';
 
@@ -8,7 +9,7 @@ const CLIENT_SESSION_NAME = 'client-session-name';
 })
 export class ClientService {
   private client: Customer;
-  constructor() {
+  constructor(private summaryService: SummaryService) {
     this.client = this.getSession();
   }
 
@@ -19,6 +20,7 @@ export class ClientService {
   updateClient(newClient: Customer): void {
     this.client = newClient;
     this.saveSession();
+    this.summaryService.updateClientData(newClient);
   }
 
   private saveSession(): void {
