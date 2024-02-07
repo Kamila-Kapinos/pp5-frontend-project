@@ -25,3 +25,20 @@ h1 {
   height: auto;
   margin-bottom: 15px;
 }
+
+.btn-add-to-card {
+  color: $font-color-dark !important;
+  background-color: transparent;
+  border: 1px solid $base-dark !important;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+  width: fit-content;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: $base-dark !important;
+    color: $font-color-light !important;
+  }
+}

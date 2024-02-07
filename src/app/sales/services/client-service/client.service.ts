@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Customer } from '../models/customer';
-import { SummaryService } from './summary.service';
+import { Customer } from '../../models/customer';
+import { SummaryService } from '../summary-service/summary.service';
 
 const CLIENT_SESSION_NAME = 'client-session-name';
 

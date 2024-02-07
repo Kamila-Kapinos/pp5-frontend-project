@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
-import { Customer } from '../models/customer';
-import { ShippingPayment } from '../models/shipping-payment.model';
-import { ReservationDetails } from '../models/reservation-details';
-import { OfferAcceptanceRequest } from '../models/offer-acceptance-request';
+import { Customer } from '../../models/customer';
+import { ShippingPayment } from '../../models/shipping-payment.model';
+import { ReservationDetails } from '../../models/reservation-details';
+import { OfferAcceptanceRequest } from '../../models/offer-acceptance-request';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({

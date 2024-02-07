@@ -1,9 +1,9 @@
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
-import { SummaryService } from '../../services/summary.service';
+import { SummaryService } from '../../services/summary-service/summary.service';
 import { Customer } from '../../models/customer';
 import { CartProduct } from '../../models/cart.model';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../services/cart-service/cart.service';
 import { OfferAcceptanceRequest } from '../../models/offer-acceptance-request';
 
 @Component({
