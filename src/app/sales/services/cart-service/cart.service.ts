@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { CartItem, CartProduct } from '../models/cart.model';
+import { CartItem, CartProduct } from '../../models/cart.model';
 import { ProductService } from 'src/app/product/services/product.service';
 
 const CART_SESSION_NAME = 'cart-session-name';

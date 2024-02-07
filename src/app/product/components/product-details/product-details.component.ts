@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../models/product';
 import { ProductService } from '../../services/product.service';
+import { CartService } from '../../../sales/services/cart-service/cart.service';
 
 @Component({
   selector: 'app-product-details',
@@ -26,6 +27,7 @@ export class ProductDetailsComponent implements OnInit {
   constructor(
     private productService: ProductService,
     private route: ActivatedRoute,
+    private cartService: CartService,
   ) {
     this.productId = this.route.snapshot.params['id'];
   }
@@ -40,5 +42,20 @@ export class ProductDetailsComponent implements OnInit {
         console.error('Błąd podczas pobierania szczegółów produktu:', error);
       },
     );
+  }
+
+  initializeAddToCartHandler(
+    productId: string | null,
+    productName: string,
+  ): void {
+    if (productId !== null) {
+      if (this.cartService.handleAddToCart(productId, productName)) {
+        console.log('OK');
+      } else {
+        console.error('Błąd podczas dodawania do koszyka');
+      }
+    } else {
+      console.error('Błąd: Brak identyfikatora produktu');
+    }
   }
 }

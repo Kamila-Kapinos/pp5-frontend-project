@@ -5,4 +5,5 @@
   <p>Description: {{ product.desc }}</p>
   <p>Type: {{product.type}} </p>
   <p>Price: {{ product.price }}</p>
+  <button class="btn btn-add-to-card" (click)="initializeAddToCartHandler(product.id, product.name)">Add to cart</button>
 </div>

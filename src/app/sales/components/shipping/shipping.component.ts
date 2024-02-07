@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShippingPayment } from '../../models/shipping-payment.model';
-import { ShippingService } from '../../services/shipping.service';
+import { ShippingService } from '../../services/shipping-service/shipping.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -33,7 +33,7 @@ export class ShippingComponent implements OnInit {
   }
 
   isNextPageButtonDisabled(form: NgForm) {
-    return !(form.valid);
+    return !form.valid;
   }
 
   goToClientData() {
