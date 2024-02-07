@@ -21,7 +21,7 @@ export class ProductDetailsComponent implements OnInit {
     image: '',
     online: false,
   };
-  productId = '';
+  productId = this.product.id;
 
   constructor(
     private productService: ProductService,

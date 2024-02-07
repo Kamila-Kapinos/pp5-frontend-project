@@ -1,28 +1,28 @@
 import { Injectable } from '@angular/core';
-import {ProductService} from "../../product/services/product.service";
-import { Product } from '../../product/models/product'
-import {catchError, Observable, of} from 'rxjs';
-import {map} from "rxjs/operators";
+import { ProductService } from '../../product/services/product.service';
+import { Product } from '../../product/models/product';
+import { catchError, Observable, of } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class SummaryService {
+  //TODO posprzatac
   private cartProductsData;
   private voucherData;
   private clientData;
   private shippingData;
 
-  constructor(private productService: ProductService,) {
-    this.cartProductsData = sessionStorage.getItem("cart-session-name")
-    this.voucherData = sessionStorage.getItem("voucher-code")
-    this.clientData = sessionStorage.getItem("client-session-name")
-    this.shippingData = sessionStorage.getItem("shipping-method")
+  constructor(private productService: ProductService) {
+    this.cartProductsData = sessionStorage.getItem('cart-session-name');
+    this.voucherData = sessionStorage.getItem('voucher-code');
+    this.clientData = sessionStorage.getItem('client-session-name');
+    this.shippingData = sessionStorage.getItem('shipping-method');
   }
-  getCartProducts(){
+  getCartProducts() {
     return this.cartProductsData ? JSON.parse(this.cartProductsData) : null;
   }
-
 
   getProductName(id: string): Observable<string> {
     return this.productService.getProductById(id).pipe(
@@ -30,35 +30,35 @@ export class SummaryService {
       catchError((error) => {
         console.error('Błąd podczas pobierania szczegółów produktu:', error);
         return of('');
-      })
+      }),
     );
   }
 
-  getVoucher(){
+  getVoucher() {
     return this.voucherData ? JSON.parse(this.voucherData) : null;
   }
 
-  getClientData(){
+  getClientData() {
     return this.clientData ? JSON.parse(this.clientData) : null;
   }
-  getCity(){
-    return this.getClientData().city || null
+  getCity() {
+    return this.getClientData().city || null;
   }
 
-  getEmail(){
-    return this.getClientData().email || null
+  getEmail() {
+    return this.getClientData().email || null;
   }
 
-  getHouseNumber(){
-    return this.getClientData().houseNumber || null
+  getHouseNumber() {
+    return this.getClientData().houseNumber || null;
   }
 
-  getLastName(){
-    return this.getClientData().lastName || null
+  getLastName() {
+    return this.getClientData().lastName || null;
   }
 
-  getName(){
-    return this.getClientData().name || null
+  getName() {
+    return this.getClientData().name || null;
   }
 
   getPhone() {
@@ -73,7 +73,7 @@ export class SummaryService {
     return this.getClientData().street || null;
   }
 
-  getShippingAndPaymentData(){
+  getShippingAndPaymentData() {
     return this.shippingData ? JSON.parse(this.shippingData) : null;
   }
 
@@ -84,5 +84,4 @@ export class SummaryService {
   getPaymentMethod() {
     return this.getClientData().paymentMethod || null;
   }
-
 }
