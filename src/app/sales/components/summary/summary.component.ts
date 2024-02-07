@@ -27,6 +27,8 @@ export class SummaryComponent implements OnInit {
     postcode: '',
     city: '',
   };
+  shippingMethod = '';
+  paymentMethod = '';
 
   constructor(
     private modalService: BsModalService,
@@ -42,14 +44,8 @@ export class SummaryComponent implements OnInit {
     this.customer.phone = summaryService.getPhone();
     this.customer.postcode = summaryService.getPostcode();
     this.customer.street = summaryService.getStreet();
-  }
-
-  getProductName(id: string) {
-    let productName;
-    this.summaryService.getProductName(id).subscribe((name: string) => {
-      productName = name;
-    });
-    return productName;
+    this.shippingMethod = summaryService.getShippingMethod();
+    this.paymentMethod = summaryService.getPaymentMethod();
   }
 
   ngOnInit() {

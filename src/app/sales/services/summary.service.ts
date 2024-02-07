@@ -1,41 +1,20 @@
 import { Injectable } from '@angular/core';
-import { ProductService } from '../../product/services/product.service';
-import { Product } from '../../product/models/product';
-import { catchError, Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SummaryService {
-  //TODO posprzatac
   private cartProductsData;
-  private voucherData;
   private clientData;
   private shippingData;
 
-  constructor(private productService: ProductService) {
+  constructor() {
     this.cartProductsData = sessionStorage.getItem('cart-session-name');
-    this.voucherData = sessionStorage.getItem('voucher-code');
     this.clientData = sessionStorage.getItem('client-session-name');
     this.shippingData = sessionStorage.getItem('shipping-method');
   }
   getCartProducts() {
     return this.cartProductsData ? JSON.parse(this.cartProductsData) : null;
-  }
-
-  getProductName(id: string): Observable<string> {
-    return this.productService.getProductById(id).pipe(
-      map((product: Product) => product.name),
-      catchError((error) => {
-        console.error('Błąd podczas pobierania szczegółów produktu:', error);
-        return of('');
-      }),
-    );
-  }
-
-  getVoucher() {
-    return this.voucherData ? JSON.parse(this.voucherData) : null;
   }
 
   getClientData() {
@@ -78,10 +57,10 @@ export class SummaryService {
   }
 
   getShippingMethod() {
-    return this.getClientData().shippingMethod || null;
+    return this.getShippingAndPaymentData().shippingMethod || null;
   }
 
   getPaymentMethod() {
-    return this.getClientData().paymentMethod || null;
+    return this.getShippingAndPaymentData().paymentMethod || null;
   }
 }
