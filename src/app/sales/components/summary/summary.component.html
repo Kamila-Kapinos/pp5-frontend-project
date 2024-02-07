@@ -98,6 +98,18 @@
 
 </form>
 
+<h2>Shipping and payment methods</h2>
+<div class="cart-summary">
+  <div class="row">
+    <div class="col">Shipping method:</div>
+    <div class="col">{{ shippingMethod }}</div>
+  </div>
+  <div class="row">
+    <div class="col">Payment method:</div>
+    <div class="col">{{ paymentMethod }}</div>
+  </div>
+</div>
+
 <div class="row arrows-row">
   <div class="col left-arrow-button-div">
     <button class="svg-button arrow-button" [routerLink]="['/sales/shipping']" >
@@ -106,7 +118,7 @@
   </div>
 
   <div class="col right-arrow-button-div">
-      <button class="btn-submit arrow-button"  (click)="openModal(template)">
+      <button class="btn-submit arrow-button"  (click)="acceptOffer(template)">
         Place order
       </button>
 

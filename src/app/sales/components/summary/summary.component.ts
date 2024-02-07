@@ -4,6 +4,9 @@ import { SummaryService } from '../../services/summary.service';
 import { Customer } from '../../models/customer';
 import { CartProduct } from '../../models/cart.model';
 import { CartService } from '../../services/cart.service';
+import {OfferAcceptanceRequest} from "../../models/offer-acceptance-request";
+import {HttpClient} from "@angular/common/http";
+import {ReservationDetails} from "../../models/reservation-details";
 
 @Component({
   selector: 'app-summary',
@@ -11,6 +14,7 @@ import { CartService } from '../../services/cart.service';
   styleUrls: ['./summary.component.scss'],
 })
 export class SummaryComponent implements OnInit {
+  offerAcceptanceRequest: OfferAcceptanceRequest = new OfferAcceptanceRequest();
   modalRef?: BsModalRef;
   products;
   cartProducts: CartProduct[] = [];
@@ -27,11 +31,14 @@ export class SummaryComponent implements OnInit {
     postcode: '',
     city: '',
   };
+  shippingMethod = '';
+  paymentMethod = '';
 
   constructor(
     private modalService: BsModalService,
     private summaryService: SummaryService,
     private cartService: CartService,
+    private http: HttpClient,
   ) {
     this.products = summaryService.getCartProducts();
     this.customer.city = summaryService.getCity();
@@ -42,14 +49,11 @@ export class SummaryComponent implements OnInit {
     this.customer.phone = summaryService.getPhone();
     this.customer.postcode = summaryService.getPostcode();
     this.customer.street = summaryService.getStreet();
-  }
-
-  getProductName(id: string) {
-    let productName;
-    this.summaryService.getProductName(id).subscribe((name: string) => {
-      productName = name;
-    });
-    return productName;
+    this.shippingMethod = summaryService.getShippingMethod();
+    this.paymentMethod = summaryService.getPaymentMethod();
+    this.offerAcceptanceRequest.firstname = this.customer.name;
+    this.offerAcceptanceRequest.lastname = this.customer.lastName;
+    this.offerAcceptanceRequest.email = this.customer.email;
   }
 
   ngOnInit() {
@@ -59,9 +63,6 @@ export class SummaryComponent implements OnInit {
     });
   }
 
-  openModal(template: TemplateRef<void>) {
-    this.modalRef = this.modalService.show(template);
-  }
 
   calc() {
     this.sum = this.cartProducts.reduce((prev, curr) => {
@@ -80,5 +81,18 @@ export class SummaryComponent implements OnInit {
 
   calcUnitsPrice(cartProduct: CartProduct): number {
     return cartProduct.quantity * cartProduct.product.price;
+  }
+
+  openModal(template: TemplateRef<void>) {
+    this.modalRef = this.modalService.show(template);
+  }
+  acceptOffer(template: TemplateRef<void>) {
+    this.openModal(template)
+
+    this.http.post<ReservationDetails>('/api/accept-offer', this.offerAcceptanceRequest)
+      .subscribe(reservationDetails => {
+        console.log('Reservation ID:', reservationDetails.reservationId);
+        console.log('Payment URL:', reservationDetails.paymentUrl);
+      });
   }
 }
