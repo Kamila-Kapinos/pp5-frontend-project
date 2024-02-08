@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ShippingPayment } from '../../models/shipping-payment.model';
 import { SummaryService } from '../summary-service/summary.service';
+import { Customer } from '../../models/customer';
 
 const SHIPPING_SESSION_KEY = 'shipping-method';
 
@@ -24,6 +25,11 @@ export class ShippingService {
     this.summaryService.updateShippingAndPaymentData(newMethods);
   }
 
+  clearShippingMethods(): void {
+    this.shippingPayment = new ShippingPayment();
+    this.saveSession();
+    this.summaryService.updateShippingAndPaymentData(this.shippingPayment);
+  }
   private saveSession(): void {
     sessionStorage.setItem(
       SHIPPING_SESSION_KEY,

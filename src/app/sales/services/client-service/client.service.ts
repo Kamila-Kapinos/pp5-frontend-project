@@ -23,6 +23,12 @@ export class ClientService {
     this.summaryService.updateClientData(newClient);
   }
 
+  clearClient(): void {
+    this.client = new Customer();
+    this.saveSession();
+    this.summaryService.updateClientData(this.client);
+  }
+
   private saveSession(): void {
     sessionStorage.setItem(CLIENT_SESSION_NAME, JSON.stringify(this.client));
   }

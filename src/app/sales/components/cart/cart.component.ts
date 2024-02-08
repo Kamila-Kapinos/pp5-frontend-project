@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart-service/cart.service';
 import { CartProduct } from '../../models/cart.model';
 import { Router } from '@angular/router';
+import { ClientService } from '../../services/client-service/client.service';
+import { ShippingService } from '../../services/shipping-service/shipping.service';
 
 @Component({
   selector: 'app-cart',
@@ -22,6 +24,8 @@ export class CartComponent implements OnInit {
   constructor(
     private cartService: CartService,
     private router: Router,
+    private clientService: ClientService,
+    private shippingService: ShippingService,
   ) {}
 
   ngOnInit() {
@@ -77,6 +81,8 @@ export class CartComponent implements OnInit {
     this.calc();
     this.applyVoucher();
     if (this.cartProducts.length === 0) {
+      this.clientService.clearClient();
+      this.shippingService.clearShippingMethods();
       sessionStorage.clear();
     }
   }
@@ -117,16 +123,5 @@ export class CartComponent implements OnInit {
     }
 
     return true;
-  }
-
-  goToNextPage(pageNumber: number): void {
-    if (!this.isNextPageButtonDisabled()) {
-      console.log(`Navigating to page ${pageNumber}`);
-      this.router.navigate(['sales/client-data']);
-    } else {
-      console.log(
-        'Cannot proceed to the next page. Cart is empty or data is incorrect.',
-      );
-    }
   }
 }
