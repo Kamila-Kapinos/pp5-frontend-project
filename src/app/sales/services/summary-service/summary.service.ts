@@ -10,12 +10,10 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class SummaryService {
-  private cartProductsData;
   private clientDataSubject: BehaviorSubject<Customer>;
   private shippingDataSubject: BehaviorSubject<ShippingPayment>;
 
   constructor(private http: HttpClient) {
-    this.cartProductsData = sessionStorage.getItem('cart-session-name');
     const clientData = sessionStorage.getItem('client-session-name');
     const shippingData = sessionStorage.getItem('shipping-method');
 

@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, of } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { CartItem, CartProduct } from '../../models/cart.model';
-import { ProductService } from 'src/app/product/services/product.service';
-import { HttpClient } from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {BehaviorSubject, Observable, of} from 'rxjs';
+import {map} from 'rxjs/operators';
+import {CartItem, CartProduct} from '../../models/cart.model';
+import {ProductService} from 'src/app/product/services/product.service';
+import {HttpClient} from '@angular/common/http';
 
 const CART_SESSION_NAME = 'cart-session-name';
 const VOUCHER_CODE_KEY = 'voucher-code';
@@ -23,7 +23,6 @@ export class CartService {
     this.refreshProductsQuantity();
     this.setVoucherValidity();
   }
-  private cartProducts: CartProduct[] = [];
   private readonly products: CartItem[] = [];
   private voucherCode = '';
   private voucherApplied = false;
@@ -108,12 +107,7 @@ export class CartService {
 
   private setVoucherValidity() {
     if (this.voucherCode) {
-      const voucherCheckResult = this.checkVoucherValidity(this.voucherCode);
-      if (voucherCheckResult) {
-        this.voucherApplied = true;
-      } else {
-        this.voucherApplied = false;
-      }
+      this.voucherApplied = this.checkVoucherValidity(this.voucherCode);
     } else {
       this.voucherApplied = false;
     }

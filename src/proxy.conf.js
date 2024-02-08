@@ -1,9 +1,3 @@
-// {
-//   "/api": {
-//     "target": "http://localhost:9999",
-//     "secure": false
-//   }
-// }
 
 var winston = require('winston'); //(1)
 

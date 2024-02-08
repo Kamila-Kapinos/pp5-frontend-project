@@ -97,10 +97,10 @@ button {
 .cart-summary-box {
   background-color: $element-color;
   color: $font-color-dark !important;
-  padding: 15px 20px; // zmniejszenie paddingu o połowę
+  padding: 15px 20px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  margin-left: auto; // przesunięcie do prawej strony
-  width: 500px; // szerokość elementu
+  margin-left: auto;
+  width: 500px;
   white-space: nowrap;
 }
