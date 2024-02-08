@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { ShippingPayment } from '../../models/shipping-payment.model';
 import { SummaryService } from '../summary-service/summary.service';
-import { Customer } from '../../models/customer';
 
 const SHIPPING_SESSION_KEY = 'shipping-method';
 

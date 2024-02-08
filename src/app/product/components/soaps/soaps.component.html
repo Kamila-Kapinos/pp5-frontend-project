@@ -1,15 +1,29 @@
 <div class="text-container">
   <h2>Experience the Gentle Elegance of Our Organic Soaps</h2>
-  <p>Immerse yourself in the essence of botanical goodness as you explore our hypoallergenic and vegan-friendly soap selection. Each bar is meticulously formulated to cleanse, nourish, and rejuvenate your skin, leaving you with a refreshing and revitalized feeling after every use.</p>
+  <p>
+    Immerse yourself in the essence of botanical goodness as you explore our
+    hypoallergenic and vegan-friendly soap selection. Each bar is meticulously
+    formulated to cleanse, nourish, and rejuvenate your skin, leaving you with a
+    refreshing and revitalized feeling after every use.
+  </p>
 </div>
-
 <div *ngIf="products" class="product-container">
   <ng-container *ngFor="let product of products">
     <div class="product-item" *ngIf="product?.type === 'soap'">
-      <button class="btn btn-product-details" [routerLink]="['/products/details', product?.id]">{{ product?.name }}</button>
-      <img class="mt-3" src="{{ product?.image }}" alt="{{ product?.name }}">
+      <button
+        class="btn btn-product-details"
+        [routerLink]="['/products/details', product?.id]"
+      >
+        {{ product?.name }}
+      </button>
+      <img class="mt-3" src="{{ product?.image }}" alt="{{ product?.name }}" />
       <p>Price: {{ product?.price }}</p>
-      <button class="btn btn-add-to-card" (click)="initializeAddToCartHandler(product.id, product.name)">Add to cart</button>
+      <button
+        class="btn btn-add-to-card"
+        (click)="initializeAddToCartHandler(product.id, product.name)"
+      >
+        Add to cart
+      </button>
     </div>
   </ng-container>
 </div>

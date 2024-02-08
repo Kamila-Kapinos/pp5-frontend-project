@@ -19,7 +19,6 @@ export class SummaryService {
     const clientData = sessionStorage.getItem('client-session-name');
     const shippingData = sessionStorage.getItem('shipping-method');
 
-    // Inicjalizacja BehaviorSubjects
     this.clientDataSubject = new BehaviorSubject(
       clientData ? JSON.parse(clientData) : null,
     );

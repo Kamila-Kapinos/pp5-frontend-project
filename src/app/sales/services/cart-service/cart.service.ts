@@ -45,7 +45,7 @@ export class CartService {
     }
     this.refreshSession();
 
-    let url = '/api/cart/' + productId;
+    const url = '/api/cart/' + productId;
     this.http.post<void>(url, {}).subscribe(
       () => {
         console.log('Produkt został dodany do koszyka. Id: ' + productId);
