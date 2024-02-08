@@ -9,6 +9,7 @@
       <button class="btn btn-product-details" [routerLink]="['/products/details', product?.id]">{{ product?.name }}</button>
       <img class="mt-3" src="{{ product?.image }}" alt="{{ product?.name }}">
       <p>Price: {{ product?.price }}</p>
+      <button class="btn btn-add-to-card" (click)="initializeAddToCartHandler(product.id, product.name)">Add to cart</button>
     </div>
   </ng-container>
 </div>
