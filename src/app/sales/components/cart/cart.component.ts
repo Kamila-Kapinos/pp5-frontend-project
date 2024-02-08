@@ -83,6 +83,7 @@ export class CartComponent implements OnInit {
     if (this.cartProducts.length === 0) {
       this.clientService.clearClient();
       this.shippingService.clearShippingMethods();
+      this.cartService.clearVoucher();
       sessionStorage.clear();
     }
   }

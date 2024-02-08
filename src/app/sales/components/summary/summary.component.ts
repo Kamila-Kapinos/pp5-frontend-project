@@ -106,6 +106,7 @@ export class SummaryComponent implements OnInit {
     for (const product of this.cartProducts) {
       this.cartService.delete(product);
     }
+    this.cartService.clearVoucher();
     sessionStorage.clear();
     this.router.navigate(['']);
   }

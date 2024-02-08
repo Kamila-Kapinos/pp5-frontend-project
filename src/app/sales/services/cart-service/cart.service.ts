@@ -185,4 +185,10 @@ export class CartService {
   private getVoucherCodeFromStorage() {
     return sessionStorage.getItem(VOUCHER_CODE_KEY) || '';
   }
+
+  clearVoucher() {
+    this.voucherCode = '';
+    this.voucherApplied = false;
+    this.saveVoucherCodeToStorage();
+  }
 }
