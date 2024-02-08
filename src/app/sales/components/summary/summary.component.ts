@@ -30,6 +30,7 @@ export class SummaryComponent implements OnInit {
   };
   shippingMethod = '';
   paymentMethod = '';
+  reservationId = '';
 
   constructor(
     private modalService: BsModalService,
@@ -80,7 +81,6 @@ export class SummaryComponent implements OnInit {
   }
 
   acceptOffer(template: TemplateRef<void>) {
-    this.openModal(template);
 
     this.offerAcceptanceRequest.firstname = this.customer.name;
     this.offerAcceptanceRequest.lastname = this.customer.lastName;
@@ -90,8 +90,11 @@ export class SummaryComponent implements OnInit {
     this.summaryService
       .acceptOffer(this.offerAcceptanceRequest)
       .subscribe((reservationDetails) => {
+        this.reservationId = reservationDetails.reservationId;
         console.log('Reservation ID:', reservationDetails.reservationId);
         console.log('Payment URL:', reservationDetails.paymentUrl);
       });
+
+    this.openModal(template);
   }
 }
