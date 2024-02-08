@@ -88,7 +88,7 @@ $font-color-light: #d9d9d9;
   background-color: transparent;
   transition: background-color 0.3s ease, color 0.3s ease;
   margin-right: auto;
-  border: 2px solid $base-dark !important;
+  border: 1px solid $base-dark !important;
 
   &:hover {
     background-color: $base-dark !important;

@@ -11,12 +11,14 @@ $font-color-light: #d9d9d9;
         position: absolute;
         right: 0;
         top: -10px;
-        background-color: rgba(255, 0, 0, 0.73);
-        color: white;
+        background-color: $base-light;
+        color: black;
         border-radius: 50%;
         width: 20px;
         height: 20px;
         font-size: 12px;
+        //font-weight: bold;
+        border: 1px solid grey;
     }
 }
 

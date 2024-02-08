@@ -8,16 +8,33 @@
     <div class="col">Choose</div>
     <div class="col">Delete your product</div>
   </div>
-  <div *ngFor="let item of cartProducts" class="offer-item container text-center">
+  <div
+    *ngFor="let item of cartProducts"
+    class="offer-item container text-center"
+  >
     <div class="row">
-      <div class="col col-elements">{{ item.product.name }} </div>
+      <div class="col col-elements">{{ item.product.name }}</div>
       <div class="col">
-        <input type="number" class="form-control" [(ngModel)]="item.quantity" (ngModelChange)="onChanged(item)" [min]="1" name="units-quantity" #unitsQuantity="ngModel">
-        <div *ngIf="(unitsQuantity.invalid && unitsQuantity.touched) || (unitsQuantity.value && unitsQuantity.invalid)" class="alert alert-danger">
+        <input
+          type="number"
+          class="form-control"
+          [(ngModel)]="item.quantity"
+          (ngModelChange)="onChanged(item)"
+          [min]="1"
+          name="units-quantity"
+          #unitsQuantity="ngModel"
+        />
+        <div
+          *ngIf="
+            (unitsQuantity.invalid && unitsQuantity.touched) ||
+            (unitsQuantity.value && unitsQuantity.invalid)
+          "
+          class="alert alert-danger"
+        >
           Min value is 1
         </div>
       </div>
-      <div class="col col-elements">{{ item.product.price }} </div>
+      <div class="col col-elements">{{ item.product.price }}</div>
       <div class="col col-elements">{{ calcUnitsPrice(item) }}</div>
       <div class="col col-elements">
         <select class="form-select">
@@ -37,26 +54,40 @@
 
   <div class="cart-summary-box">
     <div class="product-count">All products in cart: {{ sumQuantity }}</div>
-    <div class="cart-total">Cart total: {{ sum | currency:'USD':'symbol':'1.2-2' }}</div>
+    <div class="cart-total">
+      Cart total: {{ sum | currency: "USD" : "symbol" : "1.2-2" }}
+    </div>
     <div class="voucher-input">
       <label for="voucherCode">Enter voucher code:</label>
-      <input type="text" id="voucherCode" placeholder="Enter your voucher code" [(ngModel)]="voucherCode">
+      <input
+        type="text"
+        id="voucherCode"
+        placeholder="Enter your voucher code"
+        [(ngModel)]="voucherCode"
+      />
       <button class="apply-button" (click)="applyVoucher()">Apply</button>
-<!--      <div *ngIf="voucherError" class="voucher-error">{{ voucherError }}</div>-->
+      <!--      <div *ngIf="voucherError" class="voucher-error">{{ voucherError }}</div>-->
       <alert *ngIf="voucherApplied" type="success" [dismissOnTimeout]="4000">
         <strong>Voucher applied successfully!</strong>
       </alert>
     </div>
     <div *ngIf="discount">
-      <div class="cart-total">Discount: {{ discount | currency:'USD':'symbol':'1.2-2' }}</div>
-      <div class="cart-total">Cart total with discount: {{ sumWithDiscount | currency:'USD':'symbol':'1.2-2' }}</div>
+      <div class="cart-total">
+        Discount: {{ discount | currency: "USD" : "symbol" : "1.2-2" }}
+      </div>
+      <div class="cart-total">
+        Cart total with discount:
+        {{ sumWithDiscount | currency: "USD" : "symbol" : "1.2-2" }}
+      </div>
     </div>
   </div>
-
   <div class="arrows-row right-arrow-button-div">
-    <button class="svg-button arrow-button" [routerLink]="['/sales/client-data']" [disabled]="isNextPageButtonDisabled()" >
+    <button
+      class="svg-button arrow-button"
+      [routerLink]="['/sales/client-data']"
+      [disabled]="isNextPageButtonDisabled()"
+    >
       Contact and shipping information <i class="fa-solid fa-arrow-right"></i>
     </button>
   </div>
-
 </div>

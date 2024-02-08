@@ -1,9 +1,18 @@
 <h1>Product details</h1>
 <div *ngIf="product" class="product-details-container">
   <h2>{{ product.name }}</h2>
-  <img src="{{ product.image }}" alt="{{ product.name }}" class="product-image">
+  <img
+    src="{{ product.image }}"
+    alt="{{ product.name }}"
+    class="product-image"
+  />
   <p>Description: {{ product.desc }}</p>
-  <p>Type: {{product.type}} </p>
+  <p>Type: {{ product.type }}</p>
   <p>Price: {{ product.price }}</p>
-  <button class="btn btn-add-to-card" (click)="initializeAddToCartHandler(product.id, product.name)">Add to cart</button>
+  <button
+    class="btn btn-add-to-card"
+    (click)="initializeAddToCartHandler(product.id, product.name)"
+  >
+    Add to cart
+  </button>
 </div>

@@ -1,66 +1,49 @@
-
-<!--<span>{{ title }} app is running!</span>-->
-
-
-
-<!--  id-->
-<!--  :-->
-<!--  "000e7f83-dbc2-4565-8fc2-61094d79736a"-->
-<!--  image-->
-<!--  :-->
-<!--  "/image/book_1.jpg"-->
-<!--  name-->
-<!--  :-->
-<!--  "Sila stresu"-->
-<!--  online-->
-<!--  :-->
-<!--  true-->
-<!--  price-->
-<!--  :-->
-<!--  10-->
-<!--  uuid-->
-<!--  :-->
-<!--  "000e7f83-dbc2-4565-8fc2-61094d79736a"-->
-
-<!--</div>-->
-
 <main class="font">
-<nav class="navbar navbar-expand-lg navbar-bg">
-  <div class="container-fluid">
-    <a class="navbar-brand" [routerLink]="['/']">Self Care</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <button type="button" class="nav-link" [routerLink]="['/products/list']">Products</button>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-bg">
+    <div class="container-fluid">
+      <a class="navbar-brand" [routerLink]="['/']">Self Care</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <button
+              type="button"
+              class="nav-link"
+              [routerLink]="['/products/list']"
+            >
+              Products
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <button class="svg-button" [routerLink]="['/sales/cart']">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <span class="cart"
+          >Check your cart
+          <span class="quantity">{{ cartQuantity }}</span></span
+        >
+      </button>
     </div>
-
-<!--    <button class="svg-button" [routerLink]="['/logIn']">Log in</button>-->
-<!--    <button class="svg-button" [routerLink]="['/client-data']">client data form</button>-->
-
-    <button class="svg-button" [routerLink]="['/sales/cart']" >
-      <i class="fa-solid fa-cart-shopping"></i>
-      <span class="cart">Check your cart <span class="quantity">{{cartQuantity}}</span></span>
-    </button>
-  </div>
-</nav>
+  </nav>
   <div class="container dark-bg">
     <router-outlet></router-outlet>
   </div>
-<footer class="footer-bg text-center text-lg-start">
-  <!-- Copyright -->
-  <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-    © 2023-2024 Copyright: SelfCare
-  </div>
-  <!-- Copyright -->
-</footer>
+  <footer class="footer-bg text-center text-lg-start">
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+      © 2023-2024 Copyright: SelfCare
+    </div>
+    <!-- Copyright -->
+  </footer>
 </main>
-
-
-

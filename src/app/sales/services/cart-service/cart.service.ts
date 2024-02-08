@@ -3,6 +3,7 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CartItem, CartProduct } from '../../models/cart.model';
 import { ProductService } from 'src/app/product/services/product.service';
+import { HttpClient } from '@angular/common/http';
 
 const CART_SESSION_NAME = 'cart-session-name';
 const VOUCHER_CODE_KEY = 'voucher-code';
@@ -13,13 +14,16 @@ const VOUCHER_CODE_KEY = 'voucher-code';
 export class CartService {
   private subjectProductsQuantity = new BehaviorSubject(0);
 
-  constructor(private productService: ProductService) {
+  constructor(
+    private productService: ProductService,
+    private http: HttpClient,
+  ) {
     this.products = this.getSession();
     this.voucherCode = this.getVoucherCodeFromStorage() || '';
     this.refreshProductsQuantity();
     this.setVoucherValidity();
   }
-
+  private cartProducts: CartProduct[] = [];
   private readonly products: CartItem[] = [];
   private voucherCode = '';
   private voucherApplied = false;
@@ -40,6 +44,19 @@ export class CartService {
       this.products.push({ productId, productName, quantity });
     }
     this.refreshSession();
+
+    const url = '/api/cart/' + productId;
+    this.http.post<void>(url, {}).subscribe(
+      () => {
+        console.log('Produkt został dodany do koszyka. Id: ' + productId);
+      },
+      (error) => {
+        console.error(
+          'Błąd podczas dodawania do koszyka produktu o Id: ' + productId,
+          error,
+        );
+      },
+    );
 
     return true;
   }

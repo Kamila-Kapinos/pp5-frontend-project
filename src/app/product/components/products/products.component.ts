@@ -29,7 +29,7 @@ export class ProductsComponent implements OnInit {
   ): void {
     if (productId !== null) {
       if (this.cartService.handleAddToCart(productId, productName)) {
-        console.log('OK');
+        console.log('Added to cart');
       } else {
         console.error('Błąd podczas dodawania do koszyka');
       }

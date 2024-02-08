@@ -24,6 +24,11 @@ export class ShippingService {
     this.summaryService.updateShippingAndPaymentData(newMethods);
   }
 
+  clearShippingMethods(): void {
+    this.shippingPayment = new ShippingPayment();
+    this.saveSession();
+    this.summaryService.updateShippingAndPaymentData(this.shippingPayment);
+  }
   private saveSession(): void {
     sessionStorage.setItem(
       SHIPPING_SESSION_KEY,
