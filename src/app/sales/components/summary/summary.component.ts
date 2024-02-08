@@ -5,6 +5,7 @@ import { Customer } from '../../models/customer';
 import { CartProduct } from '../../models/cart.model';
 import { CartService } from '../../services/cart-service/cart.service';
 import { OfferAcceptanceRequest } from '../../models/offer-acceptance-request';
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-summary',
@@ -36,6 +37,7 @@ export class SummaryComponent implements OnInit {
     private modalService: BsModalService,
     private summaryService: SummaryService,
     private cartService: CartService,
+    private router: Router,
   ) {}
 
   ngOnInit() {
@@ -92,9 +94,14 @@ export class SummaryComponent implements OnInit {
       .subscribe((reservationDetails) => {
         this.reservationId = reservationDetails.reservationId;
         console.log('Reservation ID:', reservationDetails.reservationId);
-        console.log('Payment URL:', reservationDetails.paymentUrl);
+        // console.log('Payment URL:', reservationDetails.paymentUrl);
       });
 
     this.openModal(template);
+    sessionStorage.clear()
+    for(let product of this.cartProducts ){
+      this.cartService.delete(product);
+    }
+    this.router.navigate([''])
   }
 }
