@@ -84,12 +84,12 @@ select {
 
 .cart-summary-box {
   background-color: $element-color;
-  padding: 15px 7.5px; // zmniejszenie paddingu o połowę
+  padding: 15px 7.5px;
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   text-align: right;
-  max-width: 50%; // dodanie maksymalnej szerokości
-  margin-left: auto; // centralizacja elementu
+  max-width: 50%;
+  margin-left: auto;
 }
 
 .product-count {
@@ -151,13 +151,12 @@ button {
 
 .pagination-container {
   text-align: center;
-  margin: 20px auto; // Umieszczamy na środku strony
+  margin: 20px auto;
   display: flex;
   justify-content: center;
 
-  // Stylowanie elementu .pagination wewnątrz .pagination-container
   pagination {
-    color: $font-color-dark !important; // Dodaj ten styl, aby nadpisać kolor tekstu
+    color: $font-color-dark !important;
 
     .page-item {
       margin: 0 5px;
@@ -189,7 +188,7 @@ button {
 
 .voucher-error {
   color: red;
-  margin-top: 5px;  // Dostosuj margines według potrzeb
+  margin-top: 5px;
 }
 
 
